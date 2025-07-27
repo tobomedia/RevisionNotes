@@ -2,7 +2,7 @@
 
 *A comprehensive reference for NestJS's most commonly used features*
 
-📚 **Official Documentation:** [NestJS Documentation](https://docs.nestjs.com/)
+📚 **Official Documentation:** <a href="https://docs.nestjs.com/" target="_blank">NestJS Documentation</a>
 
 ## Table of Contents
 
@@ -42,7 +42,7 @@
 
 ## Getting Started
 
-📖 [First Steps Documentation](https://docs.nestjs.com/first-steps)
+📖 <a href="https://docs.nestjs.com/first-steps" target="_blank">First Steps Documentation</a>
 
 ```bash
 # Install NestJS CLI
@@ -83,7 +83,7 @@ src/
 
 ## Controllers
 
-📖 [Controllers Documentation](https://docs.nestjs.com/controllers)
+📖 <a href="https://docs.nestjs.com/controllers" target="_blank">Controllers Documentation</a>
 
 ```typescript
 import { Controller, Get, Post, Put, Delete, Body, Param, Query } from '@nestjs/common';
@@ -134,7 +134,7 @@ export class CatsController {
 
 ## Services & Providers
 
-📖 [Providers Documentation](https://docs.nestjs.com/providers)
+📖 <a href="https://docs.nestjs.com/providers" target="_blank">Providers Documentation</a>
 
 ```typescript
 import { Injectable, NotFoundException } from '@nestjs/common';
@@ -205,7 +205,7 @@ const connectionProvider = {
 
 ## Modules
 
-📖 [Modules Documentation](https://docs.nestjs.com/modules)
+📖 <a href="https://docs.nestjs.com/modules" target="_blank">Modules Documentation</a>
 
 ```typescript
 import { Module } from '@nestjs/common';
@@ -269,8 +269,8 @@ export class AppModule {}
 
 ## DTOs & Validation
 
-📖 [Validation Documentation](https://docs.nestjs.com/techniques/validation)  
-📖 [Pipes Documentation](https://docs.nestjs.com/pipes)
+📖 <a href="https://docs.nestjs.com/techniques/validation" target="_blank">Validation Documentation</a>  
+📖 <a href="https://docs.nestjs.com/pipes" target="_blank">Pipes Documentation</a>
 
 ```typescript
 import { IsString, IsInt, IsOptional, IsEmail, MinLength, MaxLength } from 'class-validator';
@@ -334,7 +334,7 @@ export class CatsController {
 
 ## Middleware
 
-📖 [Middleware Documentation](https://docs.nestjs.com/middleware)
+📖 <a href="https://docs.nestjs.com/middleware" target="_blank">Middleware Documentation</a>
 
 ```typescript
 import { Injectable, NestMiddleware } from '@nestjs/common';
@@ -378,7 +378,7 @@ export class AppModule implements NestModule {
 
 ## Guards
 
-📖 [Guards Documentation](https://docs.nestjs.com/guards)
+📖 <a href="https://docs.nestjs.com/guards" target="_blank">Guards Documentation</a>
 
 ```typescript
 import { Injectable, CanActivate, ExecutionContext, UnauthorizedException } from '@nestjs/common';
@@ -440,7 +440,7 @@ export class CatsController {
 
 ## Interceptors
 
-📖 [Interceptors Documentation](https://docs.nestjs.com/interceptors)
+📖 <a href="https://docs.nestjs.com/interceptors" target="_blank">Interceptors Documentation</a>
 
 ```typescript
 import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from '@nestjs/common';
@@ -503,7 +503,7 @@ export class CatsController {
 
 ## Pipes
 
-📖 [Pipes Documentation](https://docs.nestjs.com/pipes)
+📖 <a href="https://docs.nestjs.com/pipes" target="_blank">Pipes Documentation</a>
 
 ```typescript
 import { PipeTransform, Injectable, ArgumentMetadata, BadRequestException } from '@nestjs/common';
@@ -549,7 +549,7 @@ export class CatsController {
 
 ## Exception Filters
 
-📖 [Exception Filters Documentation](https://docs.nestjs.com/exception-filters)
+📖 <a href="https://docs.nestjs.com/exception-filters" target="_blank">Exception Filters Documentation</a>
 
 ```typescript
 import { ExceptionFilter, Catch, ArgumentsHost, HttpException, HttpStatus } from '@nestjs/common';
@@ -610,8 +610,8 @@ export class CatsController {
 
 ## Database Integration (TypeORM)
 
-📖 [Database Documentation](https://docs.nestjs.com/techniques/database)  
-📖 [TypeORM Integration](https://docs.nestjs.com/recipes/sql-typeorm)
+📖 <a href="https://docs.nestjs.com/techniques/database" target="_blank">Database Documentation</a>  
+📖 <a href="https://docs.nestjs.com/recipes/sql-typeorm" target="_blank">TypeORM Integration</a>
 
 ```typescript
 // Entity
@@ -700,7 +700,7 @@ export class CatsModule {}
 
 ## Configuration
 
-📖 [Configuration Documentation](https://docs.nestjs.com/techniques/configuration)
+📖 <a href="https://docs.nestjs.com/techniques/configuration" target="_blank">Configuration Documentation</a>
 
 ```typescript
 // Using ConfigModule
@@ -755,7 +755,7 @@ export class MyConfigService {
 
 ## Testing
 
-📖 [Testing Documentation](https://docs.nestjs.com/fundamentals/testing)
+📖 <a href="https://docs.nestjs.com/fundamentals/testing" target="_blank">Testing Documentation</a>
 
 ```typescript
 // Unit test
@@ -834,7 +834,7 @@ describe('CatsController (e2e)', () => {
 
 ## WebSockets
 
-📖 [WebSockets Documentation](https://docs.nestjs.com/websockets/gateways)
+📖 <a href="https://docs.nestjs.com/websockets/gateways" target="_blank">WebSockets Documentation</a>
 
 ```typescript
 import {
@@ -883,8 +883,8 @@ export class EventsGateway {
 
 ## Authentication & Authorization
 
-📖 [Authentication Documentation](https://docs.nestjs.com/security/authentication)  
-📖 [Authorization Documentation](https://docs.nestjs.com/security/authorization)
+📖 <a href="https://docs.nestjs.com/security/authentication" target="_blank">Authentication Documentation</a>  
+📖 <a href="https://docs.nestjs.com/security/authorization" target="_blank">Authorization Documentation</a>
 
 ```typescript
 // JWT Strategy
@@ -950,7 +950,7 @@ export class AuthModule {}
 
 ## Common Decorators
 
-📖 [Custom Decorators Documentation](https://docs.nestjs.com/custom-decorators)
+📖 <a href="https://docs.nestjs.com/custom-decorators" target="_blank">Custom Decorators Documentation</a>
 
 ```typescript
 // Custom parameter decorator
@@ -1006,32 +1006,32 @@ export class AuthController {
 ## Quick Reference Links
 
 ### Essential Resources
-- 📚 [NestJS Documentation](https://docs.nestjs.com/) - Complete documentation
-- 🎮 [NestJS DevTools](https://devtools.nestjs.com/) - Development tools
-- 📦 [NestJS CLI](https://docs.nestjs.com/cli/overview) - Command-line interface
-- 🔧 [NestJS Samples](https://github.com/nestjs/nest/tree/master/sample) - Example applications
+- 📚 <a href="https://docs.nestjs.com/" target="_blank">NestJS Documentation</a> - Complete documentation
+- 🎮 <a href="https://devtools.nestjs.com/" target="_blank">NestJS DevTools</a> - Development tools
+- 📦 <a href="https://docs.nestjs.com/cli/overview" target="_blank">NestJS CLI</a> - Command-line interface
+- 🔧 <a href="https://github.com/nestjs/nest/tree/master/sample" target="_blank">NestJS Samples</a> - Example applications
 
 ### Popular Integrations
-- 🗄️ [TypeORM](https://docs.nestjs.com/recipes/sql-typeorm) - SQL database ORM
-- 🍃 [Mongoose](https://docs.nestjs.com/recipes/mongodb) - MongoDB integration
-- 🔐 [Passport](https://docs.nestjs.com/security/authentication) - Authentication
-- 📊 [GraphQL](https://docs.nestjs.com/graphql/quick-start) - GraphQL support
-- 🔄 [Bull Queue](https://docs.nestjs.com/techniques/queues) - Job queues
-- 📧 [Mailer](https://nest-modules.github.io/mailer/) - Email sending
+- 🗄️ <a href="https://docs.nestjs.com/recipes/sql-typeorm" target="_blank">TypeORM</a> - SQL database ORM
+- 🍃 <a href="https://docs.nestjs.com/recipes/mongodb" target="_blank">Mongoose</a> - MongoDB integration
+- 🔐 <a href="https://docs.nestjs.com/security/authentication" target="_blank">Passport</a> - Authentication
+- 📊 <a href="https://docs.nestjs.com/graphql/quick-start" target="_blank">GraphQL</a> - GraphQL support
+- 🔄 <a href="https://docs.nestjs.com/techniques/queues" target="_blank">Bull Queue</a> - Job queues
+- 📧 <a href="https://nest-modules.github.io/mailer/" target="_blank">Mailer</a> - Email sending
 
 ### Advanced Topics
-- 🔄 [Microservices](https://docs.nestjs.com/microservices/basics) - Microservice architecture
-- 🏗️ [CQRS](https://docs.nestjs.com/recipes/cqrs) - Command Query Responsibility Segregation
-- 🎯 [Event Sourcing](https://docs.nestjs.com/recipes/cqrs#events) - Event-driven architecture
-- 🚀 [Performance](https://docs.nestjs.com/techniques/performance) - Optimization techniques
-- 🔒 [Security](https://docs.nestjs.com/security/helmet) - Security best practices
+- 🔄 <a href="https://docs.nestjs.com/microservices/basics" target="_blank">Microservices</a> - Microservice architecture
+- 🏗️ <a href="https://docs.nestjs.com/recipes/cqrs" target="_blank">CQRS</a> - Command Query Responsibility Segregation
+- 🎯 <a href="https://docs.nestjs.com/recipes/cqrs#events" target="_blank">Event Sourcing</a> - Event-driven architecture
+- 🚀 <a href="https://docs.nestjs.com/techniques/performance" target="_blank">Performance</a> - Optimization techniques
+- 🔒 <a href="https://docs.nestjs.com/security/helmet" target="_blank">Security</a> - Security best practices
 
 ### Community Resources
-- 💬 [Discord](https://discord.gg/G7Qnnhy) - Community chat
-- 🐦 [Twitter](https://twitter.com/nestframework) - Updates and news
-- 📚 [Awesome NestJS](https://github.com/juliandavidmr/awesome-nestjs) - Curated resources
-- 🎓 [NestJS Courses](https://courses.nestjs.com/) - Official courses
+- 💬 <a href="https://discord.gg/G7Qnnhy" target="_blank">Discord</a> - Community chat
+- 🐦 <a href="https://twitter.com/nestframework" target="_blank">Twitter</a> - Updates and news
+- 📚 <a href="https://github.com/juliandavidmr/awesome-nestjs" target="_blank">Awesome NestJS</a> - Curated resources
+- 🎓 <a href="https://courses.nestjs.com/" target="_blank">NestJS Courses</a> - Official courses
 
 ---
 
-*This cheatsheet covers NestJS 10+ features. For the latest updates, always refer to the [official documentation](https://docs.nestjs.com/).*
+*This cheatsheet covers NestJS 10+ features. For the latest updates, always refer to the <a href="https://docs.nestjs.com/" target="_blank">official documentation</a>.*

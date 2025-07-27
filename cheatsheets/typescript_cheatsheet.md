@@ -2,7 +2,7 @@
 
 *A comprehensive reference for TypeScript's most commonly used features*
 
-📚 **Official Documentation:** [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+📚 **Official Documentation:** <a href="https://www.typescriptlang.org/docs/" target="_blank">TypeScript Handbook</a>
 
 ## Table of Contents
 
@@ -38,7 +38,7 @@
 
 ## Basic Types
 
-📖 [Basic Types Documentation](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
+📖 <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html" target="_blank">Basic Types Documentation</a>
 
 ```typescript
 // Primitives
@@ -72,7 +72,7 @@ let move: Direction = "up";
 
 ## Interfaces
 
-📖 [Interfaces Documentation](https://www.typescriptlang.org/docs/handbook/2/objects.html)
+📖 <a href="https://www.typescriptlang.org/docs/handbook/2/objects.html" target="_blank">Interfaces Documentation</a>
 
 ```typescript
 // Basic interface
@@ -108,7 +108,7 @@ interface Repository<T> {
 
 ## Type Aliases
 
-📖 [Type Aliases Documentation](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases)
+📖 <a href="https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#type-aliases" target="_blank">Type Aliases Documentation</a>
 
 ```typescript
 // Basic type alias
@@ -135,7 +135,7 @@ type Employee = Person & {
 
 ## Functions
 
-📖 [Functions Documentation](https://www.typescriptlang.org/docs/handbook/2/functions.html)
+📖 <a href="https://www.typescriptlang.org/docs/handbook/2/functions.html" target="_blank">Functions Documentation</a>
 
 ```typescript
 // Function declarations
@@ -171,7 +171,7 @@ function process(data: string | number): string | number {
 
 ## Generics
 
-📖 [Generics Documentation](https://www.typescriptlang.org/docs/handbook/2/generics.html)
+📖 <a href="https://www.typescriptlang.org/docs/handbook/2/generics.html" target="_blank">Generics Documentation</a>
 
 ```typescript
 // Generic functions
@@ -217,7 +217,7 @@ type ApiResponse<T> = {
 
 ## Classes
 
-📖 [Classes Documentation](https://www.typescriptlang.org/docs/handbook/2/classes.html)
+📖 <a href="https://www.typescriptlang.org/docs/handbook/2/classes.html" target="_blank">Classes Documentation</a>
 
 ```typescript
 // Basic class
@@ -285,9 +285,9 @@ class Rectangle implements Shape {
 
 ## Advanced Types
 
-📖 [Advanced Types Documentation](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html)  
-📖 [Utility Types Documentation](https://www.typescriptlang.org/docs/handbook/utility-types.html)  
-📖 [Template Literal Types](https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html)
+📖 <a href="https://www.typescriptlang.org/docs/handbook/2/types-from-types.html" target="_blank">Advanced Types Documentation</a>  
+📖 <a href="https://www.typescriptlang.org/docs/handbook/utility-types.html" target="_blank">Utility Types Documentation</a>  
+📖 <a href="https://www.typescriptlang.org/docs/handbook/2/template-literal-types.html" target="_blank">Template Literal Types</a>
 
 ```typescript
 // Conditional types
@@ -332,8 +332,8 @@ type Config = typeof config;
 
 ## Type Guards
 
-📖 [Narrowing Documentation](https://www.typescriptlang.org/docs/handbook/2/narrowing.html)  
-📖 [Discriminated Unions](https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions)
+📖 <a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html" target="_blank">Narrowing Documentation</a>  
+📖 <a href="https://www.typescriptlang.org/docs/handbook/2/narrowing.html#discriminated-unions" target="_blank">Discriminated Unions</a>
 
 ```typescript
 // typeof type guard
@@ -408,7 +408,7 @@ function area(shape: Shape): number {
 
 ## Modules
 
-📖 [Modules Documentation](https://www.typescriptlang.org/docs/handbook/2/modules.html)
+📖 <a href="https://www.typescriptlang.org/docs/handbook/2/modules.html" target="_blank">Modules Documentation</a>
 
 ```typescript
 // Named exports
@@ -438,7 +438,7 @@ export * from './shapes';
 
 ## Decorators
 
-📖 [Decorators Documentation](https://www.typescriptlang.org/docs/handbook/decorators.html)
+📖 <a href="https://www.typescriptlang.org/docs/handbook/decorators.html" target="_blank">Decorators Documentation</a>
 
 > **Note:** Decorators are still experimental. Enable with `"experimentalDecorators": true` in tsconfig.json
 
@@ -496,8 +496,8 @@ class Greeter {
 
 ## Declaration Files
 
-📖 [Declaration Files Documentation](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html)  
-📖 [Global Augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#global-augmentation)
+📖 <a href="https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html" target="_blank">Declaration Files Documentation</a>  
+📖 <a href="https://www.typescriptlang.org/docs/handbook/declaration-merging.html#global-augmentation" target="_blank">Global Augmentation</a>
 
 ```typescript
 // Ambient declarations
@@ -610,8 +610,8 @@ const user = new UserBuilder()
 
 ## Configuration (tsconfig.json)
 
-📖 [TSConfig Reference](https://www.typescriptlang.org/tsconfig)  
-📖 [Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+📖 <a href="https://www.typescriptlang.org/tsconfig" target="_blank">TSConfig Reference</a>  
+📖 <a href="https://www.typescriptlang.org/docs/handbook/compiler-options.html" target="_blank">Compiler Options</a>
 
 ```json
 {
@@ -652,21 +652,21 @@ const user = new UserBuilder()
 ## Quick Reference Links
 
 ### Essential Resources
-- 📚 [TypeScript Handbook](https://www.typescriptlang.org/docs/) - Complete documentation
-- 🎮 [TypeScript Playground](https://www.typescriptlang.org/play) - Try TypeScript online
-- 📝 [TSConfig Reference](https://www.typescriptlang.org/tsconfig) - Configuration options
-- 🔧 [DefinitelyTyped](https://github.com/DefinitelyTyped/DefinitelyTyped) - Community type definitions
+- 📚 <a href="https://www.typescriptlang.org/docs/" target="_blank">TypeScript Handbook</a> - Complete documentation
+- 🎮 <a href="https://www.typescriptlang.org/play" target="_blank">TypeScript Playground</a> - Try TypeScript online
+- 📝 <a href="https://www.typescriptlang.org/tsconfig" target="_blank">TSConfig Reference</a> - Configuration options
+- 🔧 <a href="https://github.com/DefinitelyTyped/DefinitelyTyped" target="_blank">DefinitelyTyped</a> - Community type definitions
 
 ### Learning Resources
-- 🎓 [TypeScript Deep Dive](https://basarat.gitbook.io/typescript/) - Free online book
-- 📖 [TypeScript Exercises](https://typescript-exercises.github.io/) - Practice problems
-- 🧪 [Type Challenges](https://github.com/type-challenges/type-challenges) - Advanced type system challenges
+- 🎓 <a href="https://basarat.gitbook.io/typescript/" target="_blank">TypeScript Deep Dive</a> - Free online book
+- 📖 <a href="https://typescript-exercises.github.io/" target="_blank">TypeScript Exercises</a> - Practice problems
+- 🧪 <a href="https://github.com/type-challenges/type-challenges" target="_blank">Type Challenges</a> - Advanced type system challenges
 
 ### Tools & IDE Support
-- 🔧 [TypeScript ESLint](https://typescript-eslint.io/) - Linting rules
-- 🎨 [Prettier](https://prettier.io/) - Code formatting
-- 💻 [VS Code TypeScript](https://code.visualstudio.com/docs/languages/typescript) - IDE support
+- 🔧 <a href="https://typescript-eslint.io/" target="_blank">TypeScript ESLint</a> - Linting rules
+- 🎨 <a href="https://prettier.io/" target="_blank">Prettier</a> - Code formatting
+- 💻 <a href="https://code.visualstudio.com/docs/languages/typescript" target="_blank">VS Code TypeScript</a> - IDE support
 
 ---
 
-*This cheatsheet covers TypeScript 4.9+ features. For the latest updates, always refer to the [official documentation](https://www.typescriptlang.org/docs/).*
+*This cheatsheet covers TypeScript 4.9+ features. For the latest updates, always refer to the <a href="https://www.typescriptlang.org/docs/" target="_blank">official documentation</a>.*

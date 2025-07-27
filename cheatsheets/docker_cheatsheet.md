@@ -2,8 +2,8 @@
 
 *A comprehensive reference for Docker containerization and orchestration*
 
-📚 **Official Documentation:** [Docker Documentation](https://docs.docker.com/)  
-🐳 **Docker Hub:** [Official Image Registry](https://hub.docker.com/)
+📚 **Official Documentation:** <a href="https://docs.docker.com/" target="_blank">Docker Documentation</a>  
+🐳 **Docker Hub:** <a href="https://hub.docker.com/" target="_blank">Official Image Registry</a>
 
 ## Table of Contents
 
@@ -49,7 +49,7 @@
 
 ## Installation & Setup
 
-📖 [Installation Documentation](https://docs.docker.com/get-docker/)
+📖 <a href="https://docs.docker.com/get-docker/" target="_blank">Installation Documentation</a>
 
 ```bash
 # Install Docker (Ubuntu/Debian)
@@ -77,7 +77,7 @@ sudo systemctl status docker
 
 ## Docker Basics
 
-📖 [Docker Overview](https://docs.docker.com/get-started/overview/)
+📖 <a href="https://docs.docker.com/get-started/overview/" target="_blank">Docker Overview</a>
 
 ```bash
 # Basic Docker workflow
@@ -106,7 +106,7 @@ docker context use context_name # Switch context
 
 ## Docker Images
 
-📖 [Images Documentation](https://docs.docker.com/engine/reference/commandline/image/)
+📖 <a href="https://docs.docker.com/engine/reference/commandline/image/" target="_blank">Images Documentation</a>
 
 ```bash
 # List images
@@ -151,7 +151,7 @@ docker history image_name      # Show image layers
 
 ## Docker Containers
 
-📖 [Containers Documentation](https://docs.docker.com/engine/reference/commandline/container/)
+📖 <a href="https://docs.docker.com/engine/reference/commandline/container/" target="_blank">Containers Documentation</a>
 
 ```bash
 # Run containers
@@ -213,7 +213,7 @@ docker container prune                 # Remove all stopped containers
 
 ## Image Management
 
-📖 [Image Management Best Practices](https://docs.docker.com/develop/dev-best-practices/)
+📖 <a href="https://docs.docker.com/develop/dev-best-practices/" target="_blank">Image Management Best Practices</a>
 
 ```bash
 # Image cleanup
@@ -242,7 +242,7 @@ docker build --cache-from myapp:cache . # Use external cache
 
 ## Container Management
 
-📖 [Container Runtime Options](https://docs.docker.com/engine/reference/run/)
+📖 <a href="https://docs.docker.com/engine/reference/run/" target="_blank">Container Runtime Options</a>
 
 ```bash
 # Resource constraints
@@ -275,7 +275,7 @@ docker commit -m "Added feature" container_name new_image:tag
 
 ## Volume Management
 
-📖 [Volume Documentation](https://docs.docker.com/storage/volumes/)
+📖 <a href="https://docs.docker.com/storage/volumes/" target="_blank">Volume Documentation</a>
 
 ```bash
 # Create and manage volumes
@@ -312,7 +312,7 @@ docker run --rm -v myvolume:/data -v $(pwd):/backup alpine tar xzf /backup/backu
 
 ## Network Management
 
-📖 [Networking Documentation](https://docs.docker.com/network/)
+📖 <a href="https://docs.docker.com/network/" target="_blank">Networking Documentation</a>
 
 ```bash
 # List and inspect networks
@@ -360,7 +360,7 @@ docker network prune                 # Remove unused networks
 
 ## Dockerfile Basics
 
-📖 [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/)
+📖 <a href="https://docs.docker.com/engine/reference/builder/" target="_blank">Dockerfile Reference</a>
 
 ```dockerfile
 # Basic Dockerfile structure
@@ -408,7 +408,7 @@ CMD ["npm", "start"]
 
 ## Dockerfile Instructions
 
-📖 [Dockerfile Best Practices](https://docs.docker.com/develop/dev-best-practices/)
+📖 <a href="https://docs.docker.com/develop/dev-best-practices/" target="_blank">Dockerfile Best Practices</a>
 
 ```dockerfile
 # FROM - Base image
@@ -471,7 +471,7 @@ RUN if [ "$ENVIRONMENT" = "development" ]; then \
 
 ## Multi-stage Builds
 
-📖 [Multi-stage Builds Documentation](https://docs.docker.com/develop/dev-best-practices/#use-multi-stage-builds)
+📖 <a href="https://docs.docker.com/develop/dev-best-practices/#use-multi-stage-builds" target="_blank">Multi-stage Builds Documentation</a>
 
 ```dockerfile
 # Multi-stage build example
@@ -528,7 +528,7 @@ COPY --from=node:16-alpine /usr/local/bin/node /usr/local/bin/
 
 ## Dockerfile Best Practices
 
-📖 [Dockerfile Best Practices Guide](https://docs.docker.com/develop/dev-best-practices/)
+📖 <a href="https://docs.docker.com/develop/dev-best-practices/" target="_blank">Dockerfile Best Practices Guide</a>
 
 ```dockerfile
 # 1. Use specific base image versions
@@ -607,7 +607,7 @@ FROM distroless/java:11            # Minimal with runtime only
 
 ## Docker Compose Basics
 
-📖 [Compose Documentation](https://docs.docker.com/compose/)
+📖 <a href="https://docs.docker.com/compose/" target="_blank">Compose Documentation</a>
 
 ```bash
 # Basic Compose commands
@@ -645,7 +645,7 @@ docker-compose config --services    # List services
 
 ## Compose File Structure
 
-📖 [Compose File Reference](https://docs.docker.com/compose/compose-file/)
+📖 <a href="https://docs.docker.com/compose/compose-file/" target="_blank">Compose File Reference</a>
 
 ```yaml
 # docker-compose.yml
@@ -797,7 +797,7 @@ configs:
 
 ## Services Configuration
 
-📖 [Services Configuration Reference](https://docs.docker.com/compose/compose-file/05-services/)
+📖 <a href="https://docs.docker.com/compose/compose-file/05-services/" target="_blank">Services Configuration Reference</a>
 
 ```yaml
 # Advanced service configurations
@@ -967,7 +967,7 @@ secrets:
 
 ## Compose Commands
 
-📖 [CLI Reference](https://docs.docker.com/compose/reference/)
+📖 <a href="https://docs.docker.com/compose/reference/" target="_blank">CLI Reference</a>
 
 ```bash
 # Project management
@@ -1029,7 +1029,7 @@ docker-compose config | kompose convert -f -
 
 ## Watch Configuration
 
-📖 [Watch Documentation](https://docs.docker.com/compose/file-watch/)
+📖 <a href="https://docs.docker.com/compose/file-watch/" target="_blank">Watch Documentation</a>
 
 ```yaml
 # Watch configuration for development
@@ -1317,7 +1317,7 @@ docker-compose up --watch
 
 ## Docker Registry
 
-📖 [Registry Documentation](https://docs.docker.com/registry/)
+📖 <a href="https://docs.docker.com/registry/" target="_blank">Registry Documentation</a>
 
 ```bash
 # Docker Hub operations

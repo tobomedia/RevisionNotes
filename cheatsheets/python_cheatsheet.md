@@ -2,8 +2,8 @@
 
 *A comprehensive reference for Python programming*
 
-📚 **Official Documentation:** [Python Documentation](https://docs.python.org/3/)  
-🐍 **Python Enhancement Proposals:** [PEP Index](https://peps.python.org/)
+📚 **Official Documentation:** <a href="https://docs.python.org/3/" target="_blank">Python Documentation</a>  
+🐍 **Python Enhancement Proposals:** <a href="https://peps.python.org/" target="_blank">PEP Index</a>
 
 ## Table of Contents
 
@@ -62,7 +62,7 @@
 
 ## Installation & Setup
 
-📖 [Python Setup Documentation](https://docs.python.org/3/using/index.html)
+📖 <a href="https://docs.python.org/3/using/index.html" target="_blank">Python Setup Documentation</a>
 
 ```bash
 # Check Python version
@@ -86,7 +86,7 @@ pip install --upgrade package_name
 
 ## Basic Syntax
 
-📖 [Python Syntax Documentation](https://docs.python.org/3/reference/lexical_analysis.html)
+📖 <a href="https://docs.python.org/3/reference/lexical_analysis.html" target="_blank">Python Syntax Documentation</a>
 
 ```python
 # Comments
@@ -121,7 +121,7 @@ x = 1; y = 2; z = 3
 
 ## Data Types
 
-📖 [Built-in Types Documentation](https://docs.python.org/3/library/stdtypes.html)
+📖 <a href="https://docs.python.org/3/library/stdtypes.html" target="_blank">Built-in Types Documentation</a>
 
 ```python
 # Numbers
@@ -158,7 +158,7 @@ list("hello")    # ['h', 'e', 'l', 'l', 'o']
 
 ## Variables & Constants
 
-📖 [Naming Conventions - PEP 8](https://peps.python.org/pep-0008/#naming-conventions)
+📖 <a href="https://peps.python.org/pep-0008/#naming-conventions" target="_blank">Naming Conventions - PEP 8</a>
 
 ```python
 # Variables (snake_case)
@@ -196,7 +196,7 @@ def my_function():
 
 ## Operators
 
-📖 [Operators Documentation](https://docs.python.org/3/reference/expressions.html)
+📖 <a href="https://docs.python.org/3/reference/expressions.html" target="_blank">Operators Documentation</a>
 
 ```python
 # Arithmetic operators
@@ -251,7 +251,7 @@ if (n := len(my_list)) > 10:
 
 ## Control Flow
 
-📖 [Control Flow Documentation](https://docs.python.org/3/tutorial/controlflow.html)
+📖 <a href="https://docs.python.org/3/tutorial/controlflow.html" target="_blank">Control Flow Documentation</a>
 
 ```python
 # If statements
@@ -319,7 +319,7 @@ def handle_status(status):
 
 ## Functions
 
-📖 [Functions Documentation](https://docs.python.org/3/tutorial/controlflow.html#defining-functions)
+📖 <a href="https://docs.python.org/3/tutorial/controlflow.html#defining-functions" target="_blank">Functions Documentation</a>
 
 ```python
 # Basic function
@@ -387,7 +387,7 @@ for num in countdown(5):
 
 ## Classes & Objects
 
-📖 [Classes Documentation](https://docs.python.org/3/tutorial/classes.html)
+📖 <a href="https://docs.python.org/3/tutorial/classes.html" target="_blank">Classes Documentation</a>
 
 ```python
 # Basic class
@@ -496,7 +496,7 @@ print(point.distance_from_origin())  # 5.0
 
 ## Lists
 
-📖 [Lists Documentation](https://docs.python.org/3/tutorial/datastructures.html#more-on-lists)
+📖 <a href="https://docs.python.org/3/tutorial/datastructures.html#more-on-lists" target="_blank">Lists Documentation</a>
 
 ```python
 # Creating lists
@@ -547,7 +547,7 @@ item = queue.popleft()  # Remove from left
 
 ## Dictionaries
 
-📖 [Dictionaries Documentation](https://docs.python.org/3/tutorial/datastructures.html#dictionaries)
+📖 <a href="https://docs.python.org/3/tutorial/datastructures.html#dictionaries" target="_blank">Dictionaries Documentation</a>
 
 ```python
 # Creating dictionaries
@@ -602,7 +602,7 @@ print(char_count.most_common(3))  # [('l', 3), ('o', 2), ('h', 1)]
 
 ## Sets
 
-📖 [Sets Documentation](https://docs.python.org/3/tutorial/datastructures.html#sets)
+📖 <a href="https://docs.python.org/3/tutorial/datastructures.html#sets" target="_blank">Sets Documentation</a>
 
 ```python
 # Creating sets
@@ -640,7 +640,7 @@ frozen = frozenset([1, 2, 3, 4])
 
 ## Tuples
 
-📖 [Tuples Documentation](https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences)
+📖 <a href="https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences" target="_blank">Tuples Documentation</a>
 
 ```python
 # Creating tuples
@@ -682,7 +682,7 @@ print(numbers[2:4])  # (2, 3)
 
 ## Comprehensions
 
-📖 [List Comprehensions Documentation](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions)
+📖 <a href="https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions" target="_blank">List Comprehensions Documentation</a>
 
 ```python
 # List comprehensions
@@ -721,7 +721,7 @@ filtered = [x for x in range(100) if x % 2 == 0 if x % 3 == 0]
 
 ## Generators & Iterators
 
-📖 [Generators Documentation](https://docs.python.org/3/tutorial/classes.html#generators)
+📖 <a href="https://docs.python.org/3/tutorial/classes.html#generators" target="_blank">Generators Documentation</a>
 
 ```python
 # Generator functions
@@ -791,7 +791,7 @@ gen.close()        # Clean up
 
 ## Decorators
 
-📖 [Decorators Documentation](https://docs.python.org/3/glossary.html#term-decorator)
+📖 <a href="https://docs.python.org/3/glossary.html#term-decorator" target="_blank">Decorators Documentation</a>
 
 ```python
 # Simple decorator
@@ -889,7 +889,7 @@ class MathUtils:
 
 ## Context Managers
 
-📖 [Context Managers Documentation](https://docs.python.org/3/reference/datamodel.html#context-managers)
+📖 <a href="https://docs.python.org/3/reference/datamodel.html#context-managers" target="_blank">Context Managers Documentation</a>
 
 ```python
 # Using built-in context managers
@@ -953,7 +953,7 @@ with suppress(FileNotFoundError):
 
 ## Imports
 
-📖 [Import System Documentation](https://docs.python.org/3/reference/import.html)
+📖 <a href="https://docs.python.org/3/reference/import.html" target="_blank">Import System Documentation</a>
 
 ```python
 # Basic imports
@@ -1006,7 +1006,7 @@ from __future__ import division     # Python 2/3 compatibility
 
 ## Creating Modules
 
-📖 [Modules Documentation](https://docs.python.org/3/tutorial/modules.html)
+📖 <a href="https://docs.python.org/3/tutorial/modules.html" target="_blank">Modules Documentation</a>
 
 ```python
 # mymodule.py
@@ -1074,7 +1074,7 @@ __all__ = ["important_function", "ImportantClass"]
 
 ## Package Management
 
-📖 [Installing Packages Documentation](https://docs.python.org/3/installing/index.html)
+📖 <a href="https://docs.python.org/3/installing/index.html" target="_blank">Installing Packages Documentation</a>
 
 ```bash
 # pip basics
@@ -1115,7 +1115,7 @@ poetry shell                     # Activate virtual environment
 
 ## Exception Handling
 
-📖 [Errors and Exceptions Documentation](https://docs.python.org/3/tutorial/errors.html)
+📖 <a href="https://docs.python.org/3/tutorial/errors.html" target="_blank">Errors and Exceptions Documentation</a>
 
 ```python
 # Basic try-except
@@ -1200,7 +1200,7 @@ except ValueError as e:
 
 ## Testing
 
-📖 [Testing Documentation](https://docs.python.org/3/library/unittest.html)
+📖 <a href="https://docs.python.org/3/library/unittest.html" target="_blank">Testing Documentation</a>
 
 ```python
 # unittest module
@@ -1292,7 +1292,7 @@ def test_api_call(mock_get):
 
 ## Debugging
 
-📖 [Debugging Documentation](https://docs.python.org/3/library/pdb.html)
+📖 <a href="https://docs.python.org/3/library/pdb.html" target="_blank">Debugging Documentation</a>
 
 ```python
 # Using print for debugging
@@ -1375,7 +1375,7 @@ def debug_with_rich():
 
 ## File Operations
 
-📖 [File I/O Documentation](https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files)
+📖 <a href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files" target="_blank">File I/O Documentation</a>
 
 ```python
 # Basic file operations
@@ -1470,7 +1470,7 @@ permissions = stat.filemode(file_stat.st_mode)
 
 ## Working with JSON
 
-📖 [JSON Documentation](https://docs.python.org/3/library/json.html)
+📖 <a href="https://docs.python.org/3/library/json.html" target="_blank">JSON Documentation</a>
 
 ```python
 import json
@@ -1553,7 +1553,7 @@ with jsonlines.open('data.jsonl') as reader:
 
 ## Regular Expressions
 
-📖 [Regular Expressions Documentation](https://docs.python.org/3/library/re.html)
+📖 <a href="https://docs.python.org/3/library/re.html" target="_blank">Regular Expressions Documentation</a>
 
 ```python
 import re
@@ -1623,7 +1623,7 @@ matches = re.findall(r'^line', multiline_text, re.MULTILINE)  # Multiline mode
 
 ## Standard Library
 
-📖 [Standard Library Documentation](https://docs.python.org/3/library/index.html)
+📖 <a href="https://docs.python.org/3/library/index.html" target="_blank">Standard Library Documentation</a>
 
 ```python
 # datetime
@@ -1732,7 +1732,7 @@ result = math.sin(math.pi / 2)  # 1.0
 
 ## Popular Third-Party Libraries
 
-📖 [Python Package Index (PyPI)](https://pypi.org/)
+📖 <a href="https://pypi.org/" target="_blank">Python Package Index (PyPI)</a>
 
 ```python
 # requests - HTTP library
@@ -1837,7 +1837,7 @@ Session = sessionmaker(bind=engine)
 
 ## Code Style & PEP 8
 
-📖 [PEP 8 Style Guide](https://peps.python.org/pep-0008/)
+📖 <a href="https://peps.python.org/pep-0008/" target="_blank">PEP 8 Style Guide</a>
 
 ```python
 # Naming conventions
@@ -1944,7 +1944,7 @@ result = function( arg1 , arg2 )
 
 ## Performance Tips
 
-📖 [Performance Tips Documentation](https://wiki.python.org/moin/PythonSpeed/PerformanceTips)
+📖 <a href="https://wiki.python.org/moin/PythonSpeed/PerformanceTips" target="_blank">Performance Tips Documentation</a>
 
 ```python
 # Use list comprehensions instead of loops
@@ -2046,7 +2046,7 @@ print(f"Time taken: {time_taken:.6f} seconds")
 
 ## Common Patterns
 
-📖 [Design Patterns in Python](https://python-patterns.guide/)
+📖 <a href="https://python-patterns.guide/" target="_blank">Design Patterns in Python</a>
 
 ```python
 # Singleton pattern

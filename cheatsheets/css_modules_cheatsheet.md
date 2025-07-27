@@ -2,8 +2,8 @@
 
 *A comprehensive reference for CSS Modules - locally scoped CSS*
 
-📚 **Official Repository:** [CSS Modules GitHub](https://github.com/css-modules/css-modules)  
-📖 **ICSS Specification:** [Interoperable CSS](https://github.com/css-modules/icss)
+📚 **Official Repository:** <a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules GitHub</a>  
+📖 **ICSS Specification:** <a href="https://github.com/css-modules/icss" target="_blank">Interoperable CSS</a>
 
 ## Table of Contents
 
@@ -50,7 +50,7 @@ CSS Modules are CSS files where all class names and animation names are **scoped
 
 ## Basic Usage
 
-📖 [CSS Modules Specification](https://github.com/css-modules/css-modules#specification)
+📖 <a href="https://github.com/css-modules/css-modules#specification" target="_blank">CSS Modules Specification</a>
 
 ```css
 /* Button.module.css */
@@ -97,7 +97,7 @@ function Button({ children, variant = 'primary', size }) {
 
 ## Class Name Composition
 
-📖 [Composition Documentation](https://github.com/css-modules/css-modules#composition)
+📖 <a href="https://github.com/css-modules/css-modules#composition" target="_blank">Composition Documentation</a>
 
 ```css
 /* styles.module.css */
@@ -141,7 +141,7 @@ import styles from './styles.module.css';
 
 ## Global Styles
 
-📖 [Global Scope Documentation](https://github.com/css-modules/css-modules#exceptions)
+📖 <a href="https://github.com/css-modules/css-modules#exceptions" target="_blank">Global Scope Documentation</a>
 
 ```css
 /* styles.module.css */
@@ -197,7 +197,7 @@ import styles from './styles.module.css';
 
 ## Values and Variables
 
-📖 [Values Documentation](https://github.com/css-modules/css-modules#values-variables)
+📖 <a href="https://github.com/css-modules/css-modules#values-variables" target="_blank">Values Documentation</a>
 
 ```css
 /* values.module.css */
@@ -369,7 +369,7 @@ const Component: React.FC<Props> = ({ variant }) => {
 
 ### Next.js
 
-📖 [Next.js CSS Modules](https://nextjs.org/docs/app/building-your-application/styling/css-modules)
+📖 <a href="https://nextjs.org/docs/app/building-your-application/styling/css-modules" target="_blank">Next.js CSS Modules</a>
 
 ```javascript
 // pages/index.js or app/page.js
@@ -384,7 +384,7 @@ export default function Page() {
 
 ### Vite
 
-📖 [Vite CSS Modules](https://vitejs.dev/guide/features.html#css-modules)
+📖 <a href="https://vitejs.dev/guide/features.html#css-modules" target="_blank">Vite CSS Modules</a>
 
 ```javascript
 // vite.config.js
@@ -404,7 +404,7 @@ import styles from './component.module.css';
 
 ### Webpack
 
-📖 [Webpack CSS Modules](https://webpack.js.org/loaders/css-loader/#modules)
+📖 <a href="https://webpack.js.org/loaders/css-loader/#modules" target="_blank">Webpack CSS Modules</a>
 
 ```javascript
 // webpack.config.js
@@ -481,7 +481,7 @@ $border-radius: 4px;
 
 ## TypeScript Support
 
-📖 [TypeScript CSS Modules](https://github.com/css-modules/css-modules#typescript)
+📖 <a href="https://github.com/css-modules/css-modules#typescript" target="_blank">TypeScript CSS Modules</a>
 
 ```typescript
 // types/css-modules.d.ts
@@ -779,29 +779,29 @@ test('applies correct CSS classes', () => {
 ## Quick Reference Links
 
 ### Essential Resources
-- 📚 [CSS Modules Repository](https://github.com/css-modules/css-modules) - Main documentation
-- 🔧 [CSS Modules Loader](https://github.com/webpack-contrib/css-loader) - Webpack integration
-- 📖 [ICSS Specification](https://github.com/css-modules/icss) - Low-level format
-- 🎯 [PostCSS Modules](https://github.com/madyankin/postcss-modules) - PostCSS plugin
+- 📚 <a href="https://github.com/css-modules/css-modules" target="_blank">CSS Modules Repository</a> - Main documentation
+- 🔧 <a href="https://github.com/webpack-contrib/css-loader" target="_blank">CSS Modules Loader</a> - Webpack integration
+- 📖 <a href="https://github.com/css-modules/icss" target="_blank">ICSS Specification</a> - Low-level format
+- 🎯 <a href="https://github.com/madyankin/postcss-modules" target="_blank">PostCSS Modules</a> - PostCSS plugin
 
 ### Framework Documentation
-- ⚛️ [React CSS Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/) - Create React App
-- 🚀 [Next.js CSS Modules](https://nextjs.org/docs/app/building-your-application/styling/css-modules) - Next.js integration
-- ⚡ [Vite CSS Modules](https://vitejs.dev/guide/features.html#css-modules) - Vite configuration
-- 🔥 [Angular CSS Modules](https://angular.io/guide/component-styles) - Angular integration
+- ⚛️ <a href="https://create-react-app.dev/docs/adding-a-css-modules-stylesheet/" target="_blank">React CSS Modules</a> - Create React App
+- 🚀 <a href="https://nextjs.org/docs/app/building-your-application/styling/css-modules" target="_blank">Next.js CSS Modules</a> - Next.js integration
+- ⚡ <a href="https://vitejs.dev/guide/features.html#css-modules" target="_blank">Vite CSS Modules</a> - Vite configuration
+- 🔥 <a href="https://angular.io/guide/component-styles" target="_blank">Angular CSS Modules</a> - Angular integration
 
 ### Tools & Utilities
-- 🎨 [classnames](https://github.com/JedWatson/classnames) - Conditional class utility
-- 📝 [TypeScript CSS Modules](https://github.com/Quramy/typescript-plugin-css-modules) - TypeScript support
-- 🔍 [CSS Modules Examples](https://github.com/css-modules/css-modules-examples) - Example implementations
-- 🧪 [CSS Modules Values](https://github.com/css-modules/postcss-modules-values) - Values plugin
+- 🎨 <a href="https://github.com/JedWatson/classnames" target="_blank">classnames</a> - Conditional class utility
+- 📝 <a href="https://github.com/Quramy/typescript-plugin-css-modules" target="_blank">TypeScript CSS Modules</a> - TypeScript support
+- 🔍 <a href="https://github.com/css-modules/css-modules-examples" target="_blank">CSS Modules Examples</a> - Example implementations
+- 🧪 <a href="https://github.com/css-modules/postcss-modules-values" target="_blank">CSS Modules Values</a> - Values plugin
 
 ### Learning Resources
-- 📚 [CSS Modules Introduction](https://glenmaddern.com/articles/css-modules) - Glen Maddern's intro article
-- 🎓 [CSS Modules Tutorial](https://css-tricks.com/css-modules-part-1-need/) - CSS-Tricks series
-- 💡 [CSS Modules vs Styled Components](https://github.com/css-modules/css-modules/blob/master/docs/css-modules-vs-styled-components.md) - Comparison guide
-- 🔄 [Migration Guide](https://github.com/css-modules/css-modules/blob/master/docs/migration.md) - From global CSS
+- 📚 <a href="https://glenmaddern.com/articles/css-modules" target="_blank">CSS Modules Introduction</a> - Glen Maddern's intro article
+- 🎓 <a href="https://css-tricks.com/css-modules-part-1-need/" target="_blank">CSS Modules Tutorial</a> - CSS-Tricks series
+- 💡 <a href="https://github.com/css-modules/css-modules/blob/master/docs/css-modules-vs-styled-components.md" target="_blank">CSS Modules vs Styled Components</a> - Comparison guide
+- 🔄 <a href="https://github.com/css-modules/css-modules/blob/master/docs/migration.md" target="_blank">Migration Guide</a> - From global CSS
 
 ---
 
-*This cheatsheet covers CSS Modules core features and modern tooling. For the latest updates, refer to the [official repository](https://github.com/css-modules/css-modules).*
+*This cheatsheet covers CSS Modules core features and modern tooling. For the latest updates, refer to the <a href="https://github.com/css-modules/css-modules" target="_blank">official repository</a>.*
