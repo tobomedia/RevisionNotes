@@ -981,6 +981,11 @@ docker-compose stop service1         # Stop specific service
 docker-compose restart service1      # Restart specific service
 docker-compose kill service1         # Force stop service
 
+# Watch mode (Compose 2.22+)
+docker-compose up --watch            # Enable watch mode for all services
+docker-compose watch                 # Start watch mode only
+docker-compose alpha watch           # Alpha command (older versions)
+
 # Logs and monitoring
 docker-compose logs                  # All service logs
 docker-compose logs --tail=50 web   # Last 50 lines from web service
@@ -1020,6 +1025,294 @@ docker-compose -f docker-compose.yml -f docker-compose.override.yml up
 
 # Convert to Kubernetes
 docker-compose config | kompose convert -f -
+```
+
+## Watch Configuration
+
+📖 [Watch Documentation](https://docs.docker.com/compose/file-watch/)
+
+```yaml
+# Watch configuration for development
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+      - /app/node_modules
+    develop:
+      watch:
+        # Sync files and rebuild
+        - action: sync
+          path: ./src
+          target: /app/src
+          ignore:
+            - "*.log"
+            - "*.tmp"
+        
+        # Rebuild image on Dockerfile changes
+        - action: rebuild
+          path: .
+          ignore:
+            - "node_modules/"
+            - ".git/"
+        
+        # Sync and restart container
+        - action: sync+restart
+          path: ./config
+          target: /app/config
+
+  # Advanced watch configuration
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./api:/app/api
+      - ./shared:/app/shared
+    develop:
+      watch:
+        # Multiple sync paths
+        - action: sync
+          path: ./api/src
+          target: /app/api/src
+        
+        - action: sync
+          path: ./shared
+          target: /app/shared
+        
+        # Rebuild on package.json changes
+        - action: rebuild
+          path: ./api/package.json
+        
+        # Sync and restart on config changes
+        - action: sync+restart
+          path: ./api/config
+          target: /app/api/config
+          ignore:
+            - "*.example"
+            - "*.bak"
+
+  # Database with watch for init scripts
+  database:
+    image: postgres:14
+    environment:
+      POSTGRES_DB: myapp
+      POSTGRES_USER: dev
+      POSTGRES_PASSWORD: dev
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+    develop:
+      watch:
+        # Restart database when init scripts change
+        - action: sync+restart
+          path: ./db/init
+          target: /docker-entrypoint-initdb.d
+
+  # Frontend with hot reload
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    develop:
+      watch:
+        # Sync source files (hot reload handles restart)
+        - action: sync
+          path: ./frontend/src
+          target: /app/src
+        
+        # Sync public assets
+        - action: sync
+          path: ./frontend/public
+          target: /app/public
+        
+        # Rebuild on dependency changes
+        - action: rebuild
+          path: ./frontend/package.json
+        
+        - action: rebuild
+          path: ./frontend/package-lock.json
+
+volumes:
+  postgres_data:
+
+# Watch actions explained:
+# - sync: Copy files into container
+# - rebuild: Rebuild the service image
+# - sync+restart: Copy files and restart container
+
+# Usage examples:
+# docker-compose up --watch                    # Start with watch enabled
+# docker-compose watch                         # Watch mode only
+# docker-compose up web --watch                # Watch specific service
+```
+
+```bash
+# Watch mode commands
+docker-compose up --watch                     # Start all services with watch
+docker-compose up web --watch                 # Watch specific service only
+docker-compose watch                          # Start watch mode without up
+docker-compose alpha watch                    # Alpha command (older versions)
+
+# Watch with specific compose files
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --watch
+
+# Watch configuration validation
+docker-compose config                         # Verify watch configuration
+
+# Example development workflow with watch
+#!/bin/bash
+echo "Starting development environment with file watching..."
+
+# Start services with watch mode
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up --watch
+
+# The watch configuration will:
+# 1. Sync source code changes instantly
+# 2. Rebuild images when Dockerfile changes
+# 3. Restart containers when config changes
+# 4. Ignore specified files and directories
+```
+
+```yaml
+# Complete development setup with watch
+version: '3.8'
+
+services:
+  # Node.js app with hot reload
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: development
+    ports:
+      - "3000:3000"
+      - "9229:9229"  # Debug port
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - DEBUG=app:*
+    develop:
+      watch:
+        # Sync source files for hot reload
+        - action: sync
+          path: ./src
+          target: /app/src
+          ignore:
+            - "**/*.test.js"
+            - "**/*.spec.js"
+        
+        # Sync package files and rebuild
+        - action: rebuild
+          path: ./package.json
+        
+        - action: rebuild
+          path: ./package-lock.json
+        
+        # Rebuild on Dockerfile changes
+        - action: rebuild
+          path: ./Dockerfile.dev
+        
+        # Sync environment files and restart
+        - action: sync+restart
+          path: ./.env.development
+          target: /app/.env.development
+
+  # Python app with auto-reload
+  python-api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/app
+    environment:
+      - FLASK_ENV=development
+      - FLASK_DEBUG=1
+    develop:
+      watch:
+        # Sync Python files
+        - action: sync
+          path: ./api/src
+          target: /app/src
+          ignore:
+            - "**/__pycache__"
+            - "**/*.pyc"
+        
+        # Rebuild on requirements changes
+        - action: rebuild
+          path: ./api/requirements.txt
+        
+        # Sync config and restart
+        - action: sync+restart
+          path: ./api/config
+          target: /app/config
+
+  # React frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    environment:
+      - FAST_REFRESH=true
+      - CHOKIDAR_USEPOLLING=true
+    develop:
+      watch:
+        # Sync source files (React hot reload handles updates)
+        - action: sync
+          path: ./frontend/src
+          target: /app/src
+          ignore:
+            - "**/*.test.js"
+            - "**/*.test.jsx"
+        
+        # Sync public assets
+        - action: sync
+          path: ./frontend/public
+          target: /app/public
+        
+        # Rebuild on package changes
+        - action: rebuild
+          path: ./frontend/package.json
+
+# Development script with watch
+# dev-watch.sh
+#!/bin/bash
+set -e
+
+echo "🚀 Starting development environment with file watching..."
+
+# Ensure we have the latest images
+docker-compose build
+
+# Start with watch mode
+docker-compose up --watch
+
+# This will:
+# ✅ Start all services
+# ✅ Watch for file changes
+# ✅ Auto-sync code changes
+# ✅ Auto-rebuild on dependency changes
+# ✅ Auto-restart on config changes
 ```
 
 ## Docker Registry
