@@ -4,6 +4,42 @@
 
 📚 **Official Documentation:** [NestJS Documentation](https://docs.nestjs.com/)
 
+## Table of Contents
+
+### 🚀 Getting Started
+- [Getting Started](#getting-started)
+- [Project Structure](#project-structure)
+
+### 🎯 Core Concepts
+- [Controllers](#controllers)
+- [Services & Providers](#services--providers)
+- [Modules](#modules)
+- [DTOs & Validation](#dtos--validation)
+
+### 🔧 Request Lifecycle
+- [Middleware](#middleware)
+- [Guards](#guards)
+- [Interceptors](#interceptors)
+- [Pipes](#pipes)
+- [Exception Filters](#exception-filters)
+
+### 🗄️ Data & External Services
+- [Database Integration (TypeORM)](#database-integration-typeorm)
+- [Configuration](#configuration)
+- [WebSockets](#websockets)
+
+### 🔐 Security & Authentication
+- [Authentication & Authorization](#authentication--authorization)
+
+### 🛠️ Advanced Features
+- [Custom Decorators](#common-decorators)
+- [Testing](#testing)
+
+### 📚 Resources
+- [Quick Reference Links](#quick-reference-links)
+
+---
+
 ## Getting Started
 
 📖 [First Steps Documentation](https://docs.nestjs.com/first-steps)

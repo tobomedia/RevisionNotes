@@ -4,6 +4,38 @@
 
 📚 **Official Documentation:** [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 
+## Table of Contents
+
+### 🚀 Getting Started
+- [Basic Types](#basic-types)
+- [Interfaces](#interfaces)
+- [Type Aliases](#type-aliases)
+
+### 🎯 Core Language Features
+- [Functions](#functions)
+- [Generics](#generics)
+- [Classes](#classes)
+
+### 🔧 Advanced Type System
+- [Advanced Types](#advanced-types)
+- [Type Guards](#type-guards)
+
+### 📦 Module System
+- [Modules](#modules)
+- [Declaration Files](#declaration-files)
+
+### 🛠️ Advanced Features
+- [Decorators](#decorators)
+- [Common Patterns](#common-patterns)
+
+### ⚙️ Configuration & Setup
+- [Configuration (tsconfig.json)](#configuration-tsconfigjson)
+
+### 📚 Resources
+- [Quick Reference Links](#quick-reference-links)
+
+---
+
 ## Basic Types
 
 📖 [Basic Types Documentation](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html)
