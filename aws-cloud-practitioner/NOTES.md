@@ -8,10 +8,11 @@
 5. [Load Balancing & Auto Scaling](#load-balancing--auto-scaling)
 6. [Databases & Analytics](#databases--analytics)
 7. [Quick Reference Tables](#quick-reference-tables)
+8. [AWS Acronyms Glossary](#aws-acronyms-glossary)
 
 ---
 
-## IAM (Identity and Access Management)
+## [IAM](#glossary-iam) (Identity and Access Management)
 
 ### Overview
 **IAM is a global service** that manages access and permissions across all AWS services and regions. It's free to use and fundamental to AWS security.
@@ -52,10 +53,10 @@
 
 ---
 
-## EC2 (Elastic Compute Cloud)
+## [EC2](#glossary-ec2) (Elastic Compute Cloud)
 
 ### Overview
-**EC2 = Elastic Compute Cloud** - AWS's foundational service for renting virtual servers with complete control over the computing environment.
+**[EC2](#glossary-ec2) = Elastic Compute Cloud** - AWS's foundational service for renting virtual servers with complete control over the computing environment.
 
 ### Instance Types Comparison
 
@@ -107,10 +108,10 @@
 
 | Storage Type | Persistence | Performance | Attachment | Use Cases |
 |-------------|-------------|-------------|------------|-----------|
-| **EBS** | Persistent | High (varies by type) | One instance* | Boot volumes, databases |
+| **[EBS](#glossary-ebs)** | Persistent | High (varies by type) | One instance* | Boot volumes, databases |
 | **Instance Store** | Temporary | Highest | Cannot detach | Cache, temporary processing |
-| **EFS** | Persistent | Good | Multiple instances | Shared file storage |
-| **FSx** | Persistent | Very High | Multiple instances | Specialized file systems |
+| **[EFS](#glossary-efs)** | Persistent | Good | Multiple instances | Shared file storage |
+| **[FSx](#glossary-fsx)** | Persistent | Very High | Multiple instances | Specialized file systems |
 
 *Except Multi-Attach for io1/io2
 
@@ -127,25 +128,25 @@
 
 | Service | Protocol | OS Support | Multi-Instance | Pricing Model |
 |---------|----------|------------|---------------|---------------|
-| **EFS** | NFS v4.1 | Linux only | ✅ | Pay for use |
+| **[EFS](#glossary-efs)** | NFS v4.1 | Linux only | ✅ | Pay for use |
 | **FSx Lustre** | POSIX | Linux | ✅ | Provisioned |
 | **FSx Windows** | SMB | Windows | ✅ | Provisioned |
 | **FSx NetApp** | NFS/SMB/iSCSI | Both | ✅ | Provisioned |
 | **FSx OpenZFS** | NFS | Linux | ✅ | Provisioned |
 
 ### Storage Decision Framework
-- **Persistent + Single Instance** → EBS
+- **Persistent + Single Instance** → [EBS](#glossary-ebs)
 - **Highest Performance + Temporary** → Instance Store
-- **Shared Access + Linux** → EFS
-- **Shared Access + Windows** → FSx for Windows
-- **HPC/ML Workloads** → FSx for Lustre
+- **Shared Access + Linux** → [EFS](#glossary-efs)
+- **Shared Access + Windows** → [FSx](#glossary-fsx) for Windows
+- **HPC/ML Workloads** → [FSx](#glossary-fsx) for Lustre
 
 ---
 
-## Amazon S3
+## Amazon [S3](#glossary-s3)
 
 ### Overview
-AWS's object storage service with files called **Objects** stored in **Buckets** that are region-specific.
+AWS's object storage service ([S3](#glossary-s3)) with files called **Objects** stored in **Buckets** that are region-specific.
 
 ### S3 Storage Classes Comparison
 
@@ -163,7 +164,7 @@ AWS's object storage service with files called **Objects** stored in **Buckets**
 - **Bucket naming**: 3-63 characters, lowercase, globally unique
 - **File size**: Up to 5TB, multipart upload for >5GB
 - **Versioning**: Retains multiple versions of objects
-- **Replication**: CRR (Cross Region) and SRR (Same Region)
+- **Replication**: [CRR](#glossary-crr) (Cross Region) and [SRR](#glossary-srr) (Same Region)
 - **Encryption**: Server-side or client-side
 - **Static website hosting**: Must be manually enabled
 
@@ -175,9 +176,9 @@ AWS's object storage service with files called **Objects** stored in **Buckets**
 
 | Type | OSI Layer | Protocols | Performance | Latency | Static IP | SSL Termination |
 |------|-----------|-----------|-------------|---------|-----------|-----------------|
-| **ALB** | Layer 7 | HTTP/HTTPS | ~100K RPS | ~400ms | ❌ DNS only | ✅ Built-in |
-| **NLB** | Layer 4 | TCP/UDP/TLS | Millions RPS | <100μs | ✅ Per AZ | ✅ Optional |
-| **GLB** | Layer 3 | Any IP | Ultra-high | Minimal | ✅ Per AZ | ❌ Pass-through |
+| **[ALB](#glossary-alb)** | Layer 7 | HTTP/HTTPS | ~100K RPS | ~400ms | ❌ DNS only | ✅ Built-in |
+| **[NLB](#glossary-nlb)** | Layer 4 | TCP/UDP/TLS | Millions RPS | <100μs | ✅ Per AZ | ✅ Optional |
+| **[GLB](#glossary-glb)** | Layer 3 | Any IP | Ultra-high | Minimal | ✅ Per AZ | ❌ Pass-through |
 
 ### ALB Routing Capabilities
 - **Path-based**: `/api/*` → API servers, `/images/*` → image servers
@@ -217,22 +218,22 @@ AWS's object storage service with files called **Objects** stored in **Buckets**
 
 | Service | Type | Engine Options | Serverless | Multi-AZ | Use Cases |
 |---------|------|----------------|------------|----------|-----------|
-| **RDS** | Relational | MySQL, PostgreSQL, Oracle, SQL Server | ❌ | ✅ | Traditional applications |
-| **Aurora** | Relational | MySQL, PostgreSQL compatible | ✅ Available | ✅ | Cloud-native applications |
-| **DynamoDB** | NoSQL | Proprietary | ✅ | ✅ | High-scale web apps |
-| **DocumentDB** | Document | MongoDB compatible | ❌ | ✅ | JSON document storage |
-| **Neptune** | Graph | Gremlin, SPARQL | ❌ | ✅ | Graph applications |
-| **Timestream** | Time Series | Proprietary | ✅ | ✅ | IoT, monitoring |
+| **[RDS](#glossary-rds)** | Relational | MySQL, PostgreSQL, Oracle, SQL Server | ❌ | ✅ | Traditional applications |
+| **[Aurora](#glossary-aurora)** | Relational | MySQL, PostgreSQL compatible | ✅ Available | ✅ | Cloud-native applications |
+| **[DynamoDB](#glossary-dynamodb)** | NoSQL | Proprietary | ✅ | ✅ | High-scale web apps |
+| **[DocumentDB](#glossary-documentdb)** | Document | MongoDB compatible | ❌ | ✅ | JSON document storage |
+| **[Neptune](#glossary-neptune)** | Graph | Gremlin, SPARQL | ❌ | ✅ | Graph applications |
+| **[Timestream](#glossary-timestream)** | Time Series | Proprietary | ✅ | ✅ | IoT, monitoring |
 
 ### Analytics Services Comparison
 
 | Service | Purpose | Query Method | Data Source | Serverless |
 |---------|---------|--------------|-------------|------------|
-| **Redshift** | Data warehouse | SQL | Various | ✅ Available |
-| **Athena** | Query S3 data | SQL | S3 objects | ✅ |
-| **EMR** | Big data processing | Spark, Hadoop | Various | ❌ |
-| **QuickSight** | Business intelligence | Visual interface | Multiple sources | ✅ |
-| **Glue** | ETL processing | Visual/code | Various | ✅ |
+| **[Redshift](#glossary-redshift)** | Data warehouse | SQL | Various | ✅ Available |
+| **[Athena](#glossary-athena)** | Query S3 data | SQL | S3 objects | ✅ |
+| **[EMR](#glossary-emr)** | Big data processing | Spark, Hadoop | Various | ❌ |
+| **[QuickSight](#glossary-quicksight)** | Business intelligence | Visual interface | Multiple sources | ✅ |
+| **[Glue](#glossary-glue)** | ETL processing | Visual/code | Various | ✅ |
 
 ### Database Deployment Options
 
@@ -255,23 +256,23 @@ AWS's object storage service with files called **Objects** stored in **Buckets**
 - **Compliance requirements** → Dedicated Hosts/Instances
 
 #### Storage
-- **Persistent block storage** → EBS
+- **Persistent block storage** → [EBS](#glossary-ebs)
 - **Highest performance temporary** → Instance Store
-- **Shared file access (Linux)** → EFS
-- **Shared file access (Windows)** → FSx for Windows
-- **HPC/ML workloads** → FSx for Lustre
+- **Shared file access (Linux)** → [EFS](#glossary-efs)
+- **Shared file access (Windows)** → [FSx](#glossary-fsx) for Windows
+- **HPC/ML workloads** → [FSx](#glossary-fsx) for Lustre
 
 #### Load Balancing
-- **HTTP/HTTPS with advanced routing** → ALB
-- **High performance TCP/UDP** → NLB
-- **Network security appliances** → GLB
+- **HTTP/HTTPS with advanced routing** → [ALB](#glossary-alb)
+- **High performance TCP/UDP** → [NLB](#glossary-nlb)
+- **Network security appliances** → [GLB](#glossary-glb)
 
 #### Databases
-- **Traditional relational** → RDS
-- **Cloud-native relational** → Aurora
-- **High-scale NoSQL** → DynamoDB
-- **Data warehousing** → Redshift
-- **Query data in S3** → Athena
+- **Traditional relational** → [RDS](#glossary-rds)
+- **Cloud-native relational** → [Aurora](#glossary-aurora)
+- **High-scale NoSQL** → [DynamoDB](#glossary-dynamodb)
+- **Data warehousing** → [Redshift](#glossary-redshift)
+- **Query data in S3** → [Athena](#glossary-athena)
 
 ### Cost Optimization Strategies
 
@@ -279,25 +280,101 @@ AWS's object storage service with files called **Objects** stored in **Buckets**
 |---------|----------|---------|------------|
 | **EC2** | Reserved Instances | Up to 75% | 1-3 year commitment |
 | **EC2** | Spot Instances | Up to 90% | Can be terminated |
-| **S3** | Intelligent Tiering | Automatic | Small monitoring fee |
-| **S3** | Glacier storage | Up to 80% | Retrieval time/fees |
-| **EBS** | Snapshot Archive | 75% | 24-72 hour restoration |
-| **EFS** | Infrequent Access | Up to 92% | Retrieval fees |
+| **[S3](#glossary-s3)** | Intelligent Tiering | Automatic | Small monitoring fee |
+| **[S3](#glossary-s3)** | Glacier storage | Up to 80% | Retrieval time/fees |
+| **[EBS](#glossary-ebs)** | Snapshot Archive | 75% | 24-72 hour restoration |
+| **[EFS](#glossary-efs)** | Infrequent Access | Up to 92% | Retrieval fees |
 
 ### Security Best Practices Summary
 
 | Service | Key Security Practices |
 |---------|----------------------|
-| **IAM** | MFA, least privilege, regular audits |
-| **EC2** | Security groups, key pairs, regular patching |
-| **S3** | Bucket policies, encryption, access logging |
-| **RDS** | Security groups, encryption, automated backups |
-| **VPC** | NACLs, security groups, private subnets |
+| **[IAM](#glossary-iam)** | MFA, least privilege, regular audits |
+| **[EC2](#glossary-ec2)** | Security groups, key pairs, regular patching |
+| **[S3](#glossary-s3)** | Bucket policies, encryption, access logging |
+| **[RDS](#glossary-rds)** | Security groups, encryption, automated backups |
+| **[VPC](#glossary-vpc)** | NACLs, security groups, private subnets |
 
 ### Exam Tips
 - **Focus on use cases** - when to use which service
 - **Understand cost optimization** - Reserved Instances, Spot, storage classes
-- **Know security fundamentals** - IAM, MFA, least privilege
+- **Know security fundamentals** - [IAM](#glossary-iam), MFA, least privilege
 - **Memorize common ports** - 22 (SSH), 80 (HTTP), 443 (HTTPS), 3389 (RDP)
 - **Understand high availability** - Multi-AZ deployments
 - **Know scaling concepts** - vertical vs horizontal scaling
+
+---
+
+## AWS Acronyms Glossary
+
+### <a id="glossary-alb"></a>ALB - Application Load Balancer
+Layer 7 load balancer that operates at the HTTP/HTTPS level, providing advanced routing capabilities based on content, host headers, and URL paths.
+
+### <a id="glossary-athena"></a>Athena
+Serverless interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL queries.
+
+### <a id="glossary-aurora"></a>Aurora
+MySQL and PostgreSQL-compatible relational database built for the cloud that combines performance and availability of commercial databases with simplicity and cost-effectiveness of open source databases.
+
+### <a id="glossary-crr"></a>CRR - Cross Region Replication
+S3 feature that automatically replicates objects across different AWS regions for compliance, lower latency, and disaster recovery.
+
+### <a id="glossary-documentdb"></a>DocumentDB
+Fully managed document database service that supports MongoDB workloads, designed for JSON data storage and querying.
+
+### <a id="glossary-dynamodb"></a>DynamoDB
+Fully managed NoSQL database service that provides fast and predictable performance with seamless scalability for high-scale applications.
+
+### <a id="glossary-ebs"></a>EBS - Elastic Block Store
+High-performance block storage service designed for use with Amazon EC2 for both throughput and transaction intensive workloads.
+
+### <a id="glossary-ec2"></a>EC2 - Elastic Compute Cloud
+Web service that provides resizable compute capacity in the cloud, allowing you to run virtual servers on demand.
+
+### <a id="glossary-efs"></a>EFS - Elastic File System
+Fully managed NFS file system for use with AWS Cloud services and on-premises resources, providing shared storage across multiple instances.
+
+### <a id="glossary-emr"></a>EMR - Elastic MapReduce
+Cloud big data platform for processing vast amounts of data using open source tools such as Apache Spark, Hadoop, and Presto.
+
+### <a id="glossary-fsx"></a>FSx - Amazon FSx
+Fully managed file systems optimized for compute-intensive workloads, offering high-performance file systems like Lustre and Windows File Server.
+
+### <a id="glossary-glb"></a>GLB - Gateway Load Balancer
+Layer 3 load balancer that makes it easy to deploy, scale, and manage virtual appliances like firewalls and intrusion detection systems.
+
+### <a id="glossary-glue"></a>Glue
+Fully managed extract, transform, and load (ETL) service that makes it easy to prepare and load data for analytics.
+
+#### Glue Data Catalog
+Central metadata repository that stores structural and operational metadata for data assets across AWS. Acts as a persistent metadata store that can be used by AWS analytics services like Athena, EMR, and Redshift Spectrum to discover and query data without needing to know the underlying data format or location.
+
+### <a id="glossary-iam"></a>IAM - Identity and Access Management
+Web service that helps you securely control access to AWS resources by managing users, groups, roles, and their permissions.
+
+### <a id="glossary-neptune"></a>Neptune
+Fully managed graph database service that makes it easy to build and run applications with highly connected datasets.
+
+### <a id="glossary-nlb"></a>NLB - Network Load Balancer
+Layer 4 load balancer that handles millions of requests per second with ultra-low latencies while maintaining high throughput.
+
+### <a id="glossary-quicksight"></a>QuickSight
+Scalable, serverless, embeddable business intelligence service that lets you create and publish interactive dashboards.
+
+### <a id="glossary-rds"></a>RDS - Relational Database Service
+Web service that makes it easier to set up, operate, and scale relational databases in the cloud, supporting multiple database engines.
+
+### <a id="glossary-redshift"></a>Redshift
+Fully managed, petabyte-scale data warehouse service in the cloud that makes it simple and cost-effective to analyze data.
+
+### <a id="glossary-s3"></a>S3 - Simple Storage Service
+Object storage service that offers industry-leading scalability, data availability, security, and performance for storing and retrieving any amount of data.
+
+### <a id="glossary-srr"></a>SRR - Same Region Replication
+S3 feature that automatically replicates objects within the same AWS region for compliance, data protection, and workflow optimization.
+
+### <a id="glossary-timestream"></a>Timestream
+Fully managed time series database service for IoT and operational applications that makes it easy to store and analyze trillions of events per day.
+
+### <a id="glossary-vpc"></a>VPC - Virtual Private Cloud
+Logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define.
