@@ -9,9 +9,10 @@
 6. [Databases & Analytics](#databases--analytics)
 7. [Container Services](#container-services)
 8. [Serverless Computing](#serverless-computing)
-9. [Amazon Lightsail](#amazon-lightsail)
-10. [Quick Reference Tables](#quick-reference-tables)
-11. [AWS Acronyms Glossary](#aws-acronyms-glossary)
+9. [Deployment & Infrastructure Management](#deployment--infrastructure-management)
+10. [Amazon Lightsail](#amazon-lightsail)
+11. [Quick Reference Tables](#quick-reference-tables)
+12. [AWS Acronyms Glossary](#aws-acronyms-glossary)
 
 ---
 
@@ -375,6 +376,143 @@ Fully managed batch processing service for running jobs at any scale.
 
 ---
 
+## Deployment & Infrastructure Management
+
+### Overview
+AWS provides comprehensive tools for managing infrastructure at scale through **Infrastructure as Code (IaC)**, automated deployment pipelines, and systems management services.
+
+### Infrastructure as Code Comparison
+
+| Service | Language Support | Compilation | Availability | Learning Curve | Use Cases |
+|---------|------------------|-------------|--------------|----------------|-----------|
+| **[CloudFormation](#glossary-cloudformation)** | JSON/YAML | Direct | US-East-1 initially | Medium | AWS-native infrastructure templates |
+| **[CDK](#glossary-cdk)** | JavaScript, Python, Java, C#, Go | Compiles to CloudFormation | Global | Higher | Programmatic infrastructure definition |
+| **Application Composer** | Visual | Generates CloudFormation | Global | Low | Visual infrastructure design |
+
+### Deployment Services Comparison
+
+| Service | Target Environment | Deployment Type | Management Level | Use Cases |
+|---------|-------------------|-----------------|------------------|-----------|
+| **[Elastic Beanstalk](#glossary-beanstalk)** | AWS only | Application-focused PaaS | High (AWS managed) | Web applications, API backends |
+| **[CodeDeploy](#glossary-codedeploy)** | AWS + On-premises | Code deployment | Medium | Application updates, blue/green deployments |
+| **[CodePipeline](#glossary-codepipeline)** | Various targets | CI/CD orchestration | Medium | Complete deployment pipelines |
+
+### [CloudFormation](#glossary-cloudformation)
+- **Infrastructure as Code** - Define AWS resources using JSON/YAML templates
+- **Repeatable deployments** - Create identical environments multiple times
+- **Template sharing** - Reusable infrastructure patterns
+- **Initial availability** - Templates deploy to US-East-1 first, then other regions
+- **Change management** - Stack updates with rollback capabilities
+
+### Application Composer
+- **Visual builder** - Drag-and-drop interface for infrastructure design
+- **CloudFormation generation** - Automatically creates CloudFormation templates
+- **Real-time preview** - Visual representation of infrastructure relationships
+- **Beginner-friendly** - No coding required for basic infrastructure
+
+### [CDK](#glossary-cdk) (Cloud Development Kit)
+- **Familiar languages** - Write infrastructure in JavaScript, Python, Java, C#, Go
+- **Compilation process** - Code compiles into CloudFormation templates (JSON/YAML)
+- **Developer experience** - IDE support, testing, and version control
+- **Advanced constructs** - Higher-level abstractions for common patterns
+
+### [Elastic Beanstalk](#glossary-beanstalk)
+- **Platform as a Service (PaaS)** - Developer-centric application deployment
+- **Architecture models**:
+  - **Single instance** - Development and testing environments
+  - **Load Balancer + Auto Scaling Group** - Production and pre-production web applications
+  - **Auto Scaling Group only** - Non-web applications (workers, batch processing)
+- **Health monitoring** - Built-in health agent reports to CloudWatch
+- **Application health checks** - Monitors application health and deployment events
+- **Easy deployment** - Upload code, Beanstalk handles infrastructure
+
+### Developer Tools Suite
+
+#### [CodeCommit](#glossary-codecommit)
+- **Git repository service** - AWS-managed version control (discontinued for new users)
+- **GitHub alternative** - Similar functionality to GitHub/GitLab
+- **Integration** - Native AWS service integration
+- **Note** - May still appear in course materials but discontinued for new customers
+
+#### [CodeDeploy](#glossary-codedeploy)
+- **Deployment automation** - Automated application deployments
+- **Multi-environment** - Supports AWS cloud and on-premises servers
+- **Deployment strategies** - Rolling, blue/green, canary deployments  
+- **Application types** - Supports EC2, Lambda, ECS applications
+
+#### [CodePipeline](#glossary-codepipeline)
+- **CI/CD orchestration** - End-to-end pipeline automation
+- **Source integration** - Works with CodeCommit, GitHub, S3
+- **Build integration** - Integrates with CodeBuild, Jenkins, third-party tools
+- **Deployment automation** - Coordinates with CodeDeploy and other deployment tools
+
+#### [CodeArtifact](#glossary-codeartifact)
+- **Package repository** - Managed artifact repository service
+- **Dependency management** - Stores and retrieves software packages
+- **Proxy functionality** - Proxies public repositories (npm, PyPI, Maven)
+- **Security** - Package scanning and access control
+
+### Systems Management
+
+#### [Systems Manager (SSM)](#glossary-ssm)
+- **Hybrid management** - Manages both EC2 and on-premises infrastructure
+- **Core capabilities**:
+  - **Patch management** - Automated OS and software patching
+  - **Run commands** - Execute commands across infrastructure at scale
+  - **Session management** - Secure shell access without SSH
+- **Agent requirement** - Must install SSM agent on managed instances
+
+#### [SSM Session Manager](#glossary-ssm-session-manager)
+- **Secure shell access** - Browser-based terminal sessions
+- **No SSH required** - Eliminates need for SSH keys and port 22 access
+- **No bastion hosts** - Direct secure access to private instances
+- **Audit trail** - Session logs can be sent to S3 for compliance
+- **Network isolation** - Works with instances in private subnets
+
+#### [Fleet Manager](#glossary-fleet-manager)
+- **Centralized view** - Web portal for all instances with SSM agent
+- **Instance management** - Monitor, patch, and manage instances remotely
+- **Bulk operations** - Perform actions across multiple instances
+- **Health monitoring** - Real-time status of managed instances
+
+#### [Parameter Store](#glossary-parameter-store)
+- **Secure storage** - Centralized storage for configuration data and secrets
+- **Data types** - API keys, database passwords, configuration settings
+- **Version control** - Track parameter changes over time
+- **Encryption support** - Automatic encryption for sensitive data
+- **Integration** - Native integration with other AWS services
+- **Hierarchical organization** - Organize parameters in tree structure
+
+### Deployment Architecture Patterns
+
+#### Beanstalk Architecture Decision Matrix
+| Architecture | Use Case | Scalability | Cost | Complexity |
+|-------------|----------|-------------|------|------------|
+| **Single Instance** | Development, testing | Low | Lowest | Minimal |
+| **LB + ASG** | Production web apps | High | Medium | Low |
+| **ASG Only** | Background processing, workers | Medium | Low | Low |
+
+#### Infrastructure Management Best Practices
+- **Use IaC** - CloudFormation or CDK for reproducible infrastructure
+- **Version control** - Track all infrastructure changes
+- **Environment parity** - Consistent environments across dev/staging/prod
+- **Automated deployment** - Use CodePipeline for CI/CD
+- **Centralized configuration** - Parameter Store for application settings
+- **Patch management** - Systems Manager for OS updates
+- **Monitoring** - CloudWatch integration for operational visibility
+
+### Decision Framework
+- **Visual infrastructure design** → Application Composer
+- **Template-based infrastructure** → [CloudFormation](#glossary-cloudformation)
+- **Code-based infrastructure** → [CDK](#glossary-cdk)
+- **Simple application deployment** → [Elastic Beanstalk](#glossary-beanstalk)
+- **Complex deployment pipelines** → [CodePipeline](#glossary-codepipeline) + [CodeDeploy](#glossary-codedeploy)
+- **Instance management at scale** → [Systems Manager](#glossary-ssm)
+- **Secure remote access** → [SSM Session Manager](#glossary-ssm-session-manager)
+- **Configuration management** → [Parameter Store](#glossary-parameter-store)
+
+---
+
 ## Amazon Lightsail
 
 ### Overview
@@ -424,6 +562,18 @@ Simplified cloud platform offering virtual servers, storage, databases, and netw
 - **Data warehousing** → [Redshift](#glossary-redshift)
 - **Query data in S3** → [Athena](#glossary-athena)
 
+#### Deployment & Infrastructure Management
+- **Visual infrastructure design** → Application Composer
+- **Template-based infrastructure** → [CloudFormation](#glossary-cloudformation)
+- **Code-based infrastructure** → [CDK](#glossary-cdk)
+- **Simple application deployment** → [Elastic Beanstalk](#glossary-beanstalk)
+- **CI/CD pipelines** → [CodePipeline](#glossary-codepipeline)
+- **Automated deployments** → [CodeDeploy](#glossary-codedeploy)
+- **Package management** → [CodeArtifact](#glossary-codeartifact)
+- **Infrastructure management** → [Systems Manager](#glossary-ssm)
+- **Secure remote access** → [SSM Session Manager](#glossary-ssm-session-manager)
+- **Configuration management** → [Parameter Store](#glossary-parameter-store)
+
 ### Cost Optimization Strategies
 
 | Service | Strategy | Savings | Trade-offs |
@@ -444,6 +594,7 @@ Simplified cloud platform offering virtual servers, storage, databases, and netw
 | **[S3](#glossary-s3)** | Bucket policies, encryption, access logging |
 | **[RDS](#glossary-rds)** | Security groups, encryption, automated backups |
 | **[VPC](#glossary-vpc)** | NACLs, security groups, private subnets |
+| **[Systems Manager](#glossary-ssm)** | Session Manager, patch management, secure parameter storage |
 
 ### Exam Tips
 - **Focus on use cases** - when to use which service
@@ -468,6 +619,27 @@ Serverless interactive query service that makes it easy to analyze data in Amazo
 
 ### <a id="glossary-batch"></a>Batch
 Fully managed batch processing service that efficiently runs hundreds of thousands of computing jobs by dynamically provisioning compute resources based on job requirements.
+
+### <a id="glossary-beanstalk"></a>Elastic Beanstalk
+Platform as a Service (PaaS) that provides a developer-centric view for deploying applications on AWS. Supports multiple architecture models including single instance, load balancer with auto scaling, and auto scaling group only configurations.
+
+### <a id="glossary-cdk"></a>CDK - Cloud Development Kit
+Infrastructure as code framework that allows you to define cloud resources using familiar programming languages like JavaScript, Python, Java, C#, and Go. Code compiles into CloudFormation templates.
+
+### <a id="glossary-cloudformation"></a>CloudFormation
+AWS Infrastructure as Code service that allows you to define AWS resources using JSON/YAML templates. Enables repeatable infrastructure deployments and template sharing across environments.
+
+### <a id="glossary-codeartifact"></a>CodeArtifact
+Managed artifact repository service that securely stores and manages software packages. Acts as a proxy for public repositories like npm, PyPI, and Maven while providing package scanning and access control.
+
+### <a id="glossary-codecommit"></a>CodeCommit
+AWS-managed Git repository service (discontinued for new users) that provided version control similar to GitHub. May still appear in course materials but is no longer available for new customers.
+
+### <a id="glossary-codedeploy"></a>CodeDeploy
+Deployment automation service that supports both AWS cloud and on-premises servers. Provides various deployment strategies including rolling, blue/green, and canary deployments for EC2, Lambda, and ECS applications.
+
+### <a id="glossary-codepipeline"></a>CodePipeline
+CI/CD orchestration service that automates the build, test, and deployment phases of your application release process. Integrates with various source control, build, and deployment tools.
 
 ### <a id="glossary-aurora"></a>Aurora
 MySQL and PostgreSQL-compatible relational database built for the cloud that combines performance and availability of commercial databases with simplicity and cost-effectiveness of open source databases.
@@ -505,6 +677,9 @@ Cloud big data platform for processing vast amounts of data using open source to
 ### <a id="glossary-fargate"></a>Fargate
 Serverless compute engine for containers that works with both Amazon ECS and EKS, allowing you to run containers without managing servers or clusters.
 
+### <a id="glossary-fleet-manager"></a>Fleet Manager
+Web portal that provides a centralized view of all instances with the SSM agent running. Enables bulk operations, monitoring, patching, and remote management of EC2 and on-premises instances.
+
 ### <a id="glossary-fsx"></a>FSx - Amazon FSx
 Fully managed file systems optimized for compute-intensive workloads, offering high-performance file systems like Lustre and Windows File Server.
 
@@ -532,6 +707,9 @@ Fully managed graph database service that makes it easy to build and run applica
 ### <a id="glossary-nlb"></a>NLB - Network Load Balancer
 Layer 4 load balancer that handles millions of requests per second with ultra-low latencies while maintaining high throughput.
 
+### <a id="glossary-parameter-store"></a>Parameter Store
+Secure, hierarchical storage for configuration data and secrets management. Provides version tracking, encryption support, and integration with other AWS services for storing API keys, database passwords, and configuration settings.
+
 ### <a id="glossary-quicksight"></a>QuickSight
 Scalable, serverless, embeddable business intelligence service that lets you create and publish interactive dashboards.
 
@@ -546,6 +724,12 @@ Object storage service that offers industry-leading scalability, data availabili
 
 ### <a id="glossary-srr"></a>SRR - Same Region Replication
 S3 feature that automatically replicates objects within the same AWS region for compliance, data protection, and workflow optimization.
+
+### <a id="glossary-ssm"></a>SSM - Systems Manager
+Comprehensive service for managing EC2 and on-premises infrastructure at scale. Provides patch management, command execution, session management, and configuration management capabilities.
+
+### <a id="glossary-ssm-session-manager"></a>SSM Session Manager
+Component of Systems Manager that provides secure shell access to EC2 instances without requiring SSH keys, bastion hosts, or port 22 access. Sessions can be logged to S3 for audit compliance.
 
 ### <a id="glossary-timestream"></a>Timestream
 Fully managed time series database service for IoT and operational applications that makes it easy to store and analyze trillions of events per day.
