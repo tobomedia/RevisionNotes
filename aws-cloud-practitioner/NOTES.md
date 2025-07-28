@@ -7,8 +7,11 @@
 4. [Amazon S3](#amazon-s3)
 5. [Load Balancing & Auto Scaling](#load-balancing--auto-scaling)
 6. [Databases & Analytics](#databases--analytics)
-7. [Quick Reference Tables](#quick-reference-tables)
-8. [AWS Acronyms Glossary](#aws-acronyms-glossary)
+7. [Container Services](#container-services)
+8. [Serverless Computing](#serverless-computing)
+9. [Amazon Lightsail](#amazon-lightsail)
+10. [Quick Reference Tables](#quick-reference-tables)
+11. [AWS Acronyms Glossary](#aws-acronyms-glossary)
 
 ---
 
@@ -245,6 +248,153 @@ AWS's object storage service ([S3](#glossary-s3)) with files called **Objects** 
 
 ---
 
+## Container Services
+
+### Overview
+**Docker** allows lightweight, transportable application environments by packaging applications and their dependencies into containers.
+
+### Container Registry Options
+
+| Registry | Type | Description | Use Cases |
+|----------|------|-------------|-----------|
+| **Docker Hub** | Public | Public container registry | Open source images, public projects |
+| **[ECR](#glossary-ecr)** | Private | Amazon Elastic Container Registry | Private container images, enterprise security |
+
+### Container Orchestration Comparison
+
+| Service | Infrastructure | Management | Kubernetes | Use Cases |
+|---------|---------------|------------|------------|-----------|
+| **[ECS](#glossary-ecs)** | [EC2](#glossary-ec2) instances | AWS managed | ❌ | AWS-native container orchestration |
+| **[Fargate](#glossary-fargate)** | Serverless | AWS managed | ❌ | Serverless containers, no infrastructure management |
+| **[EKS](#glossary-eks)** | [EC2](#glossary-ec2)/[Fargate](#glossary-fargate) | User + AWS managed | ✅ | Kubernetes workloads, cloud-agnostic applications |
+
+### Service Characteristics
+
+#### [ECS](#glossary-ecs) (Elastic Container Service)
+- **Infrastructure**: Multiple [EC2](#glossary-ec2) instances run within an ECS cluster
+- **Management**: AWS handles container orchestration
+- **Integration**: Native AWS service integration
+- **Learning curve**: Lower for AWS users
+
+#### [Fargate](#glossary-fargate)
+- **Infrastructure**: Serverless - no need to provision infrastructure
+- **Management**: AWS handles both infrastructure and orchestration
+- **Billing**: Pay per task/container usage
+- **Use case**: Simplified container deployment
+
+#### [EKS](#glossary-eks) (Elastic Kubernetes Service)
+- **Platform**: Open source Kubernetes system
+- **Portability**: Cloud-agnostic (can run on AWS, Azure, GCP, on-premises)
+- **Flexibility**: Full Kubernetes feature set
+- **Hosting options**: Can run on [Fargate](#glossary-fargate) or [ECS](#glossary-ecs)
+
+### Container Decision Framework
+- **AWS-native + Simple** → [ECS](#glossary-ecs)
+- **No infrastructure management** → [Fargate](#glossary-fargate)
+- **Kubernetes expertise + Portability** → [EKS](#glossary-eks)
+- **Private container images** → [ECR](#glossary-ecr)
+
+---
+
+## Serverless Computing
+
+### Overview
+**Serverless** means developers don't need to manage servers - just deploy code. Also known as **FaaS (Function as a Service)**.
+
+### Serverless Services Examples
+
+| Service | Type | Description |
+|---------|------|-------------|
+| **Amazon [S3](#glossary-s3)** | Storage | Object storage without server management |
+| **[DynamoDB](#glossary-dynamodb)** | Database | NoSQL database with automatic scaling |
+| **[Fargate](#glossary-fargate)** | Containers | Container execution without server provisioning |
+| **[Lambda](#glossary-lambda)** | Compute | Function execution without server management |
+
+### [Lambda](#glossary-lambda) Deep Dive
+
+#### Key Characteristics
+- **Virtual functions** - no server management required
+- **Time limited** - maximum 15 minutes execution time
+- **On-demand execution** - runs only when triggered
+- **Auto-scaled** - AWS handles scaling automatically
+- **Event-driven** - triggered by various AWS services
+
+#### Language Support
+- Node.js
+- Python
+- Java
+- C# (.NET)
+- Ruby
+- Go
+- PowerShell
+
+#### Pricing Model
+- **Pay per request** and compute time
+- **Free tier**: 1,000,000 requests and 400,000 GB-seconds compute per month
+- **Cost**: $0.20 per million requests after free tier
+- **Very cost-effective** for intermittent workloads
+
+#### Common Use Cases
+- **Serverless cron jobs** using CloudWatch Events/EventBridge
+- **API backends** with [API Gateway](#glossary-api-gateway)
+- **Event processing** (file uploads, database changes)
+- **Real-time file processing**
+
+### [API Gateway](#glossary-api-gateway)
+
+#### Overview
+Routing service for requests to [Lambda](#glossary-lambda) functions and other AWS services.
+
+#### Key Features
+- **Serverless and scalable** - no infrastructure management
+- **Protocol support** - REST APIs and WebSocket APIs
+- **Security features** - Authentication, authorization, API keys
+- **Traffic management** - Throttling, caching, monitoring
+- **Integration** - Native [Lambda](#glossary-lambda) integration
+
+### [Batch](#glossary-batch)
+
+#### Overview
+Fully managed batch processing service for running jobs at any scale.
+
+#### Key Characteristics
+- **Batch processing** - jobs have a defined start and end
+- **Scalable** - can efficiently run 100,000s of computing jobs
+- **Dynamic provisioning** - automatically launches [EC2](#glossary-ec2) instances as needed
+- **Docker-based** - batch jobs defined as Docker images
+
+#### [Batch](#glossary-batch) vs [Lambda](#glossary-lambda) Comparison
+
+| Feature | [Lambda](#glossary-lambda) | [Batch](#glossary-batch) |
+|---------|------------|--------|
+| **Time limit** | 15 minutes maximum | No time limit |
+| **Disk space** | Temporary, limited | [EBS](#glossary-ebs)/instance store available |
+| **Runtime** | Limited supported runtimes | Any runtime via Docker |
+| **Infrastructure** | Serverless | Relies on [EC2](#glossary-ec2) instances |
+| **Use cases** | Event-driven, short tasks | Long-running, compute-intensive jobs |
+
+---
+
+## Amazon Lightsail
+
+### Overview
+Simplified cloud platform offering virtual servers, storage, databases, and networking with low and predictable pricing.
+
+### Key Features
+- **All-in-one solution** - Virtual servers, storage, databases, networking
+- **Predictable pricing** - Fixed monthly costs
+- **Simplified management** - Easy-to-use interface
+- **Target audience** - Users with little cloud experience
+- **Use cases** - Simple websites, development environments, small applications
+
+### When to Choose Lightsail
+- **Getting started** with cloud computing
+- **Predictable costs** are important
+- **Simple applications** that don't need complex AWS services
+- **Small-scale projects** or personal websites
+
+---
+
 ## Quick Reference Tables
 
 ### When to Use Which Service
@@ -310,8 +460,14 @@ AWS's object storage service ([S3](#glossary-s3)) with files called **Objects** 
 ### <a id="glossary-alb"></a>ALB - Application Load Balancer
 Layer 7 load balancer that operates at the HTTP/HTTPS level, providing advanced routing capabilities based on content, host headers, and URL paths.
 
+### <a id="glossary-api-gateway"></a>API Gateway
+Fully managed service that makes it easy to create, publish, maintain, monitor, and secure APIs at any scale. Routes requests to Lambda functions and other AWS services.
+
 ### <a id="glossary-athena"></a>Athena
 Serverless interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL queries.
+
+### <a id="glossary-batch"></a>Batch
+Fully managed batch processing service that efficiently runs hundreds of thousands of computing jobs by dynamically provisioning compute resources based on job requirements.
 
 ### <a id="glossary-aurora"></a>Aurora
 MySQL and PostgreSQL-compatible relational database built for the cloud that combines performance and availability of commercial databases with simplicity and cost-effectiveness of open source databases.
@@ -328,14 +484,26 @@ Fully managed NoSQL database service that provides fast and predictable performa
 ### <a id="glossary-ebs"></a>EBS - Elastic Block Store
 High-performance block storage service designed for use with Amazon EC2 for both throughput and transaction intensive workloads.
 
+### <a id="glossary-ecr"></a>ECR - Elastic Container Registry
+Fully managed Docker container registry that makes it easy to store, manage, and deploy Docker container images securely.
+
+### <a id="glossary-ecs"></a>ECS - Elastic Container Service
+Highly scalable container orchestration service that supports Docker containers and allows you to run applications on a managed cluster of Amazon EC2 instances.
+
 ### <a id="glossary-ec2"></a>EC2 - Elastic Compute Cloud
 Web service that provides resizable compute capacity in the cloud, allowing you to run virtual servers on demand.
 
 ### <a id="glossary-efs"></a>EFS - Elastic File System
 Fully managed NFS file system for use with AWS Cloud services and on-premises resources, providing shared storage across multiple instances.
 
+### <a id="glossary-eks"></a>EKS - Elastic Kubernetes Service
+Fully managed Kubernetes service that runs Kubernetes control plane across multiple AWS Availability Zones, allowing you to run Kubernetes applications without managing the control plane infrastructure.
+
 ### <a id="glossary-emr"></a>EMR - Elastic MapReduce
 Cloud big data platform for processing vast amounts of data using open source tools such as Apache Spark, Hadoop, and Presto.
+
+### <a id="glossary-fargate"></a>Fargate
+Serverless compute engine for containers that works with both Amazon ECS and EKS, allowing you to run containers without managing servers or clusters.
 
 ### <a id="glossary-fsx"></a>FSx - Amazon FSx
 Fully managed file systems optimized for compute-intensive workloads, offering high-performance file systems like Lustre and Windows File Server.
@@ -351,6 +519,12 @@ Central metadata repository that stores structural and operational metadata for 
 
 ### <a id="glossary-iam"></a>IAM - Identity and Access Management
 Web service that helps you securely control access to AWS resources by managing users, groups, roles, and their permissions.
+
+### <a id="glossary-lambda"></a>Lambda
+Serverless compute service that lets you run code without provisioning or managing servers. Functions are event-driven and automatically scale based on demand.
+
+### <a id="glossary-lightsail"></a>Lightsail
+Simplified cloud platform that offers virtual servers, storage, databases, and networking with predictable pricing, designed for users with limited cloud experience.
 
 ### <a id="glossary-neptune"></a>Neptune
 Fully managed graph database service that makes it easy to build and run applications with highly connected datasets.
