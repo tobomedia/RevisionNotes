@@ -10,9 +10,10 @@
 7. [Container Services](#container-services)
 8. [Serverless Computing](#serverless-computing)
 9. [Deployment & Infrastructure Management](#deployment--infrastructure-management)
-10. [Amazon Lightsail](#amazon-lightsail)
-11. [Quick Reference Tables](#quick-reference-tables)
-12. [AWS Acronyms Glossary](#aws-acronyms-glossary)
+10. [Global Content Delivery Network](#global-content-delivery-network)
+11. [Amazon Lightsail](#amazon-lightsail)
+12. [Quick Reference Tables](#quick-reference-tables)
+13. [AWS Acronyms Glossary](#aws-acronyms-glossary)
 
 ---
 
@@ -513,6 +514,133 @@ AWS provides comprehensive tools for managing infrastructure at scale through **
 
 ---
 
+## Global Content Delivery Network
+
+### Overview
+AWS provides a global network infrastructure designed to bring content, compute, and applications closer to end users worldwide, reducing latency and improving performance through strategic edge locations and hybrid solutions.
+
+### Global Infrastructure Services Comparison
+
+| Service | Primary Purpose | Caching | Network Path | Deployment | Use Cases |
+|---------|-----------------|---------|--------------|------------|-----------|
+| **[S3 Transfer Acceleration](#glossary-s3-transfer-acceleration)** | Faster S3 uploads | ❌ | AWS backbone | Automatic | Large file uploads to S3 |
+| **[Global Accelerator](#glossary-global-accelerator)** | Network optimization | ❌ | AWS backbone | Manual setup | Application performance |
+| **[CloudFront](#glossary-cloudfront)** | Content delivery | ✅ | Edge locations | Manual setup | Static/dynamic content delivery |
+
+### Edge Computing Solutions Comparison
+
+| Service | Location | Integration | Latency | Management | Use Cases |
+|---------|----------|-------------|---------|------------|-----------|
+| **[AWS Outposts](#glossary-outposts)** | On-premises | Full AWS services | Ultra-low | AWS managed | Hybrid cloud, data residency |
+| **[Wavelength](#glossary-wavelength)** | 5G provider edge | Limited AWS services | Ultra-low | AWS managed | 5G mobile applications |
+| **[Local Zones](#glossary-local-zones)** | Metropolitan areas | VPC extension | Low | AWS managed | Latency-sensitive apps |
+
+### [S3 Transfer Acceleration](#glossary-s3-transfer-acceleration)
+- **Purpose** - Significantly speeds up uploads to S3 buckets
+- **Mechanism** - Uses CloudFront edge locations to route uploads via AWS backbone
+- **Benefits** - Faster data transfer, especially for large files and distant locations
+- **Use cases** - Media uploads, backup files, data migration to S3
+- **Pricing** - Additional cost only when acceleration provides benefit
+
+### [Global Accelerator](#glossary-global-accelerator)
+- **Network optimization** - Routes traffic through AWS's global network infrastructure
+- **No caching** - Does not cache content; focuses on optimal routing
+- **Anycast IP** - Provides static IP addresses that route to optimal AWS edge location
+- **Performance** - Improves performance by up to 60% for TCP/UDP traffic
+- **Use cases** - Gaming applications, IoT, VoIP, video streaming
+- **Health checks** - Automatic failover to healthy endpoints
+
+### Edge Computing Solutions
+
+#### [AWS Outposts](#glossary-outposts)
+- **Hybrid cloud** - Brings AWS infrastructure to on-premises data centers
+- **Physical hardware** - Specific server racks deployed at customer premises
+- **Full integration** - Extends AWS cloud to on-premises environment
+- **Benefits**:
+  - **Ultra-low latency** - Processing at the edge
+  - **Local data processing** - Compute without cloud round-trips
+  - **Data residency** - Keep sensitive data on-premises
+  - **Easier migration** - Gradual transition to cloud
+- **Management** - Fully managed by AWS
+- **Services** - Many AWS services work natively on Outposts
+
+#### [AWS Wavelength](#glossary-wavelength)
+- **5G integration** - Wavelength zones embedded within telecommunications providers
+- **Edge compute** - Brings AWS services to the edge of 5G networks
+- **EC2 at the edge** - Run EC2 instances directly on 5G infrastructure
+- **Performance benefits**:
+  - **Ultra-low latency** - Single-digit millisecond latency
+  - **High bandwidth** - 5G network capabilities
+- **Use cases** - Autonomous vehicles, AR/VR, real-time gaming, industrial automation
+- **Limited services** - Subset of AWS services available
+
+#### [Local Zones](#glossary-local-zones)
+- **Metropolitan extension** - Places compute and storage closer to end users
+- **VPC extension** - Extends your Amazon VPC to Local Zone locations
+- **Regional connection** - Connected to parent AWS Region via AWS's redundant network
+- **Benefits**:
+  - **Low latency** - Single-digit millisecond latency for nearby users
+  - **Compliance** - Data remains in specific geographic area
+  - **Seamless integration** - Works with existing VPC infrastructure
+- **Use cases** - Content creation, real-time gaming, machine learning inference
+
+### Global Application Architecture Patterns
+
+#### Multi-Region Active/Passive
+- **Active region** - Handles both read and write operations
+- **Passive region** - Read-only with data replication from active region
+- **Failover** - Manual or automatic failover to passive region during outages
+- **Cost optimization** - Lower costs as passive region uses minimal resources
+- **Use cases** - Disaster recovery, compliance requirements
+
+#### Multi-Region Active/Active
+- **Both regions active** - Both regions handle read and write operations
+- **Bi-directional replication** - Data synchronization across both regions
+- **Geographic distribution** - Users routed to closest region for optimal performance
+- **Higher complexity** - Requires careful data consistency management
+- **Higher costs** - Both regions fully operational
+- **Use cases** - Global applications, maximum availability requirements
+
+### Performance Optimization Strategies
+
+#### Content Delivery Decision Matrix
+| Content Type | Recommendation | Reason |
+|-------------|----------------|---------|
+| **Static content** | CloudFront | Caching reduces origin load |
+| **Dynamic content** | CloudFront + Global Accelerator | Caching + network optimization |
+| **Large file uploads** | S3 Transfer Acceleration | Optimized upload path |
+| **Real-time applications** | Global Accelerator | Network path optimization |
+| **API endpoints** | CloudFront + Global Accelerator | Caching + routing optimization |
+
+#### Edge Computing Decision Matrix
+| Requirement | Solution | Key Benefit |
+|-------------|----------|-------------|
+| **Full AWS services on-premises** | AWS Outposts | Complete cloud experience locally |
+| **5G mobile applications** | Wavelength | Ultra-low latency for mobile users |
+| **City-level latency reduction** | Local Zones | Metropolitan area optimization |
+| **Hybrid cloud strategy** | Outposts | Gradual cloud migration |
+| **Data sovereignty** | Outposts or Local Zones | Data remains in specific location |
+
+### Global Infrastructure Best Practices
+- **Multi-region strategy** - Deploy across multiple regions for disaster recovery
+- **Edge optimization** - Use appropriate edge service for your use case
+- **Network monitoring** - Monitor performance across all regions and edge locations
+- **Cost optimization** - Balance performance needs with cost considerations
+- **Compliance planning** - Consider data residency requirements in architecture decisions
+- **Failover testing** - Regularly test failover mechanisms in multi-region setups
+
+### Decision Framework
+- **Faster S3 uploads** → [S3 Transfer Acceleration](#glossary-s3-transfer-acceleration)
+- **Application performance optimization** → [Global Accelerator](#glossary-global-accelerator)
+- **Content caching and delivery** → [CloudFront](#glossary-cloudfront)
+- **On-premises AWS services** → [AWS Outposts](#glossary-outposts)
+- **5G edge computing** → [Wavelength](#glossary-wavelength)
+- **Metropolitan latency reduction** → [Local Zones](#glossary-local-zones)
+- **Global disaster recovery** → Multi-region Active/Passive
+- **Global high availability** → Multi-region Active/Active
+
+---
+
 ## Amazon Lightsail
 
 ### Overview
@@ -573,6 +701,14 @@ Simplified cloud platform offering virtual servers, storage, databases, and netw
 - **Infrastructure management** → [Systems Manager](#glossary-ssm)
 - **Secure remote access** → [SSM Session Manager](#glossary-ssm-session-manager)
 - **Configuration management** → [Parameter Store](#glossary-parameter-store)
+
+#### Global Content Delivery & Edge Computing
+- **Faster S3 uploads** → [S3 Transfer Acceleration](#glossary-s3-transfer-acceleration)
+- **Application performance optimization** → [Global Accelerator](#glossary-global-accelerator)
+- **Content caching and delivery** → [CloudFront](#glossary-cloudfront)
+- **On-premises AWS services** → [AWS Outposts](#glossary-outposts)
+- **5G edge computing** → [Wavelength](#glossary-wavelength)
+- **Metropolitan latency reduction** → [Local Zones](#glossary-local-zones)
 
 ### Cost Optimization Strategies
 
@@ -644,6 +780,12 @@ CI/CD orchestration service that automates the build, test, and deployment phase
 ### <a id="glossary-aurora"></a>Aurora
 MySQL and PostgreSQL-compatible relational database built for the cloud that combines performance and availability of commercial databases with simplicity and cost-effectiveness of open source databases.
 
+### <a id="glossary-cloudfront"></a>CloudFront
+AWS's global Content Delivery Network (CDN) service that delivers content to users with low latency by caching data at edge locations worldwide. Supports both static and dynamic content delivery.
+
+### <a id="glossary-global-accelerator"></a>Global Accelerator
+Network service that improves the performance of applications by routing traffic through AWS's global network infrastructure. Uses anycast IP addresses and provides up to 60% performance improvement without caching.
+
 ### <a id="glossary-crr"></a>CRR - Cross Region Replication
 S3 feature that automatically replicates objects across different AWS regions for compliance, lower latency, and disaster recovery.
 
@@ -701,6 +843,9 @@ Serverless compute service that lets you run code without provisioning or managi
 ### <a id="glossary-lightsail"></a>Lightsail
 Simplified cloud platform that offers virtual servers, storage, databases, and networking with predictable pricing, designed for users with limited cloud experience.
 
+### <a id="glossary-local-zones"></a>Local Zones
+AWS infrastructure deployments that place compute, storage, and other AWS services closer to end users in metropolitan areas. Extends VPC to provide single-digit millisecond latency for latency-sensitive applications.
+
 ### <a id="glossary-neptune"></a>Neptune
 Fully managed graph database service that makes it easy to build and run applications with highly connected datasets.
 
@@ -719,8 +864,14 @@ Web service that makes it easier to set up, operate, and scale relational databa
 ### <a id="glossary-redshift"></a>Redshift
 Fully managed, petabyte-scale data warehouse service in the cloud that makes it simple and cost-effective to analyze data.
 
+### <a id="glossary-outposts"></a>AWS Outposts
+Hybrid cloud solution that brings native AWS services, infrastructure, and operating models to virtually any on-premises data center. Provides fully managed server racks for ultra-low latency and local data processing.
+
 ### <a id="glossary-s3"></a>S3 - Simple Storage Service
 Object storage service that offers industry-leading scalability, data availability, security, and performance for storing and retrieving any amount of data.
+
+### <a id="glossary-s3-transfer-acceleration"></a>S3 Transfer Acceleration
+Feature that speeds up uploads to S3 buckets by routing traffic through CloudFront edge locations and AWS's backbone network. Provides faster data transfer, especially for large files and distant locations.
 
 ### <a id="glossary-srr"></a>SRR - Same Region Replication
 S3 feature that automatically replicates objects within the same AWS region for compliance, data protection, and workflow optimization.
@@ -736,3 +887,6 @@ Fully managed time series database service for IoT and operational applications 
 
 ### <a id="glossary-vpc"></a>VPC - Virtual Private Cloud
 Logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define.
+
+### <a id="glossary-wavelength"></a>Wavelength
+AWS infrastructure deployments embedded within telecommunications providers' 5G networks. Enables ultra-low latency applications by running EC2 instances at the edge of 5G networks for mobile and connected device applications.
